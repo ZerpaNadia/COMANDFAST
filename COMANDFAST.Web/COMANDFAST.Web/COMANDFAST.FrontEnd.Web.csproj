@@ -149,6 +149,7 @@
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="login.Master" />
+    <Content Include="Assets\js\kit.font.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Detalle-pedido.aspx.cs" Inherits="COMANDFAST.Web.Detalle_pedido" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
+    <link href="Assets/css/time-line.css" type="text/css" rel="stylesheet" media="all"/>  
+    <script src='Assets/js/kit.font.js'></script>
     <style type="text/css">
 		@media(max-width:1366px){
 			.banner {
@@ -14,22 +14,18 @@
 			height: 55px!important;
 			width: 55px!important;
 			}
-
 			.menu-text-right h4 {
 				margin-left:0px!important;
 			}
-
 		}
 
 		@media(max-width:414px){
 			.banner {
 			min-height: 70px;
 			}
-
 			.agregar {
 				height: 28px;
 			}
-
 			.quitar {
 				margin-top: 0px;
 				height: 28px;

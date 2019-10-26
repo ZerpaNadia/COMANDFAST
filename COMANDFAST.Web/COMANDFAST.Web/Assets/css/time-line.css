@@ -1,4 +1,3 @@
-@import "https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700";
 header:after, #timeline .timeline-item:after, header:before, #timeline .timeline-item:before {
   content: '';
   display: block;
@@ -21,7 +20,6 @@ body {
   background-size: cover;
   margin: 0;
   padding: 0;
-  font-family: helvetica, arial, tahoma, verdana;
   line-height: 20px;
   font-size: 14px;
   color: #726f77;
@@ -41,7 +39,6 @@ a {
 }
 
 h1, h2, h3, h4 {
-  font-family: "Dosis", arial, tahoma, verdana;
   font-weight: 500;
 }
 
@@ -61,7 +58,6 @@ header {
 header .logo {
   color: #ee4d4d;
   float: left;
-  font-family: "Dosis", arial, tahoma, verdana;
   font-size: 22px;
   font-weight: 500;
 }
@@ -73,7 +69,6 @@ header .social {
   float: right;
 }
 header .social .btn {
-  font-family: "Dosis";
   font-size: 14px;
   margin: 10px 5px;
 }
