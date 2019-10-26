@@ -8,4 +8,5 @@
 /COMANDFAST.Web/obj/
 /COMANDFAST.Layer.Business/bin/
 /COMANDFAST.Layer.Data/bin/
-
+/COMANDFAST.Layer.Business/obj/
+/COMANDFAST.Layer.Data/obj/
