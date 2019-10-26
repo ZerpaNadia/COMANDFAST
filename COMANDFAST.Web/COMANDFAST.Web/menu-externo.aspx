@@ -84,7 +84,7 @@
 								<div class="menu-text">									      
 									<div class="menu-text-left">
 										<div class="rep-w3l-img">
-										  <img src="images/f1.jpg" alt=" " class="img-responsive">
+										  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 										</div>
 									     <div class="rep-w3l-text">
 										   <h4>PATICOMPLÉ...................</h4>
@@ -100,7 +100,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>GRINGA..............................</h4>
@@ -117,7 +117,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>DEL BOSQUE............................</h4>
@@ -136,7 +136,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>TAREA FINA............................</h4>
@@ -154,7 +154,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>DOÑA TOTA............................</h4>
@@ -171,7 +171,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>CAPRICHOSA...........................</h4>
@@ -196,7 +196,7 @@
 								      
 									<div class="menu-text-left">
 										<div class="rep-w3l-img">
-										  <img src="images/d1.jpg" alt=" " class="img-responsive">
+										  <img src="Assets/images/d1.jpg" alt=" " class="img-responsive">
 										</div>
 									     <div class="rep-w3l-text">
 										   <h4>AGUA/GASEOSAS...........</h4>
@@ -214,7 +214,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/d1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/d1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>LASTAS 550cc.................</h4>
@@ -231,7 +231,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f3.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f3.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>VASAO DE VINO..............</h4>
@@ -252,7 +252,7 @@
 										      
 											<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f4.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f4.jpg" alt=" " class="img-responsive">
 												</div>
 											     <div class="rep-w3l-text">
 												   <h4>PINTAS.........................</h4>
@@ -270,7 +270,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f5.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f5.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												   <h4>FERNET BRANCA.................</h4>
@@ -295,7 +295,7 @@
 										      
 											<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f3.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f3.jpg" alt=" " class="img-responsive">
 												</div>
 											     <div class="rep-w3l-text">
 												   <h4>PAPAS FRITAS............</h4>
@@ -313,7 +313,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f1.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												  <h4>Lorem ipsum dolor............</h4>
@@ -330,7 +330,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f4.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f4.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												  <h4>Lorem ipsum dolor............</h4>
@@ -351,7 +351,7 @@
 										      
 											<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f6.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f6.jpg" alt=" " class="img-responsive">
 												</div>
 											     <div class="rep-w3l-text">
 												   <h4>Lorem ipsum dolor............</h4>
@@ -369,7 +369,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f2.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f2.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												   <h4>Lorem ipsum dolor............</h4>
@@ -387,7 +387,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f1.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												  <h4>Lorem ipsum dolor............</h4>

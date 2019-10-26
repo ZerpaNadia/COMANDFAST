@@ -55,7 +55,7 @@
 		<h3 class="tittle">RESERVA TU MESA</h3>
 			<div class="agile-reservation">
 			    <div class="col-md-4 agile-reservation-grid img-ocultar">
-			        <img src="images/side.jpg" alt=" " class="img-responsive img-style row2">
+			        <img src="Assets/images/side.jpg" alt=" " class="img-responsive img-style row2">
 			    </div>
 				 <div class="col-md-4 agile-reservation-grid mid-w3l-aits">
 			  <div class="book-form">
@@ -121,7 +121,7 @@
 					
 			     </div>
 				  <div class="col-md-4 agile-reservation-grid  img-ocultar">
-			       <img src="images/r2.jpg" alt=" " class="img-responsive img-style row2">
+			       <img src="Assets/images/r2.jpg" alt=" " class="img-responsive img-style row2">
 			    </div>
 				<div class="clearfix"> </div>
 			</div>

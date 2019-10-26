@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Detalle-pedido.aspx.cs" Inherits="COMANDFAST.Web.Detalle_pedido" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
     <style type="text/css">
 		@media(max-width:1366px){
 			.banner {

@@ -62,7 +62,7 @@
 				<div class="menu-text">									      
 					<div class="menu-text-left">
 						<div class="rep-w3l-img">
-						  <img src="images/f1.jpg" alt=" " class="img-responsive"/>
+						  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
 						</div>
 					    <div class="rep-w3l-text book-form">
 							  <h4>DEL BOSQUE............................</h4>
@@ -80,7 +80,7 @@
 				<div class="menu-text">
 					<div class="menu-text-left">
 							<div class="rep-w3l-img">
-							  <img src="images/f1.jpg" alt=" " class="img-responsive">
+							  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 							</div>
 						   <div class="rep-w3l-text book-form">
 							  <h4>DEL BOSQUE............................</h4>
@@ -98,7 +98,7 @@
 				<div class="menu-text">
 					<div class="menu-text-left">
 							<div class="rep-w3l-img">
-							  <img src="images/f3.jpg" alt=" " class="img-responsive">
+							  <img src="Assets/images/f3.jpg" alt=" " class="img-responsive">
 							</div>
 						   <div class="rep-w3l-text book-form">
 							  <h4>PAPAS FRITAS............................</h4>
@@ -116,7 +116,7 @@
 				<div class="menu-text">
 					<div class="menu-text-left">
 						<div class="rep-w3l-img">
-						  <img src="images/d1.jpg" alt=" " class="img-responsive">
+						  <img src="Assets/images/d1.jpg" alt=" " class="img-responsive">
 						</div>
 					     <div class="rep-w3l-text  book-form">
 						   <h4>AGUA/GASEOSAS...........</h4>

@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="COMANDFAST.Web.Menu" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">ç
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
 		@media(max-width:1366px){
 			.banner {
@@ -18,7 +18,6 @@
 			}
 
 		}
-
 		@media(max-width:414px){
 			.banner {
 			min-height: 70px;
@@ -63,7 +62,7 @@
 			}
 
 			$('#cantidad-carrito').text(cant);
-		} 
+		}
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -84,7 +83,7 @@
 								<div class="menu-text">									      
 									<div class="menu-text-left">
 										<div class="rep-w3l-img">
-										  <img src="images/f1.jpg" alt=" " class="img-responsive">
+										  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
 										</div>
 									     <div class="rep-w3l-text">
 										   <h4>PATICOMPLÉ...................</h4>
@@ -94,15 +93,15 @@
 									</div>
 									<div class="menu-text-right">
 										<h4>$ 240</h4>
-										<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
+										<input type="button" class="submit agregar" onclick="sumar()"/>
+										<input type="button" class="submit quitar" onclick="restar()"/>
 									</div>
 									<div class="clearfix"> </div>
 								</div>	
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>GRINGA..............................</h4>
@@ -121,7 +120,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>DEL BOSQUE............................</h4>
@@ -142,7 +141,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>TAREA FINA............................</h4>
@@ -162,7 +161,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>DOÑA TOTA............................</h4>
@@ -181,7 +180,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>CAPRICHOSA...........................</h4>
@@ -208,7 +207,7 @@
 								      
 									<div class="menu-text-left">
 										<div class="rep-w3l-img">
-										  <img src="images/d1.jpg" alt=" " class="img-responsive">
+										  <img src="Assets/images/d1.jpg" alt=" " class="img-responsive">
 										</div>
 									     <div class="rep-w3l-text">
 										   <h4>AGUA/GASEOSAS...........</h4>
@@ -228,7 +227,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/d1.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/d1.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>LASTAS 550cc.................</h4>
@@ -247,7 +246,7 @@
 								<div class="menu-text">
 									<div class="menu-text-left">
 											<div class="rep-w3l-img">
-											  <img src="images/f3.jpg" alt=" " class="img-responsive">
+											  <img src="Assets/images/f3.jpg" alt=" " class="img-responsive">
 											</div>
 										   <div class="rep-w3l-text">
 											  <h4>VASAO DE VINO..............</h4>
@@ -270,7 +269,7 @@
 										      
 											<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f4.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f4.jpg" alt=" " class="img-responsive">
 												</div>
 											     <div class="rep-w3l-text">
 												   <h4>PINTAS.........................</h4>
@@ -290,7 +289,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f5.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f5.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												   <h4>FERNET BRANCA.................</h4>
@@ -317,7 +316,7 @@
 										      
 											<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f3.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f3.jpg" alt=" " class="img-responsive">
 												</div>
 											     <div class="rep-w3l-text">
 												   <h4>PAPAS FRITAS............</h4>
@@ -337,7 +336,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f1.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												  <h4>Lorem ipsum dolor............</h4>
@@ -356,7 +355,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f4.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f4.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												  <h4>Lorem ipsum dolor............</h4>
@@ -379,7 +378,7 @@
 										      
 											<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f6.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f6.jpg" alt=" " class="img-responsive">
 												</div>
 											     <div class="rep-w3l-text">
 												   <h4>Lorem ipsum dolor............</h4>
@@ -399,7 +398,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f2.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f2.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												   <h4>Lorem ipsum dolor............</h4>
@@ -419,7 +418,7 @@
 									<div class="menu-text">
 										<div class="menu-text-left">
 												<div class="rep-w3l-img">
-												  <img src="images/f1.jpg" alt=" " class="img-responsive">
+												  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
 												</div>
 											   <div class="rep-w3l-text">
 												  <h4>Lorem ipsum dolor............</h4>
@@ -444,4 +443,34 @@
 		  </div>
 	  </div>
 	</div>
+	<script src="Assets/js/jquery-2.2.3.min.js"></script> 
+	<script type="text/javascript" src="Assets/js/move-top.js"></script>
+	<script type="text/javascript" src="Assets/js/easing.js"></script>	
+	<script src="Assets/js/bootstrap.js"></script>
+	<script src="Assets/js/jquery.adipoli.min.js" type="text/javascript"></script>
+	<script type="text/javascript"> 
+		$(function(){ 
+			$('.row2').adipoli({
+				'startEffect' : 'overlay',
+				'hoverEffect' : 'sliceDown'
+			}); 
+		});
+		
+	</script>
+	<script src="js/jquery.swipebox.min.js"></script> 
+	<script type="text/javascript">
+			jQuery(function($) {
+				$(".swipebox").swipebox();
+			});
+	</script>
+	<!-- //swipe box js -->
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+	</script>
 </asp:Content>
