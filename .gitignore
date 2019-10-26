@@ -356,6 +356,9 @@ MigrationBackup/
 /COMANDFAST.Web/packages/*.*
 /COMANDFAST.Web/bin/*.*
 /COMANDFAST.Web/obj/*.*
+/COMANDFAST.Web/COMANDFAST.Web/packages/*.*
+/COMANDFAST.Web/COMANDFAST.Web/bin/*.*
+/COMANDFAST.Web/COMANDFAST.Web/obj/*.*
 /COMANDFAST.Layer.Business/bin/*.*
 /COMANDFAST.Layer.Data/bin/*.*
 /COMANDFAST.Layer.Business/obj/*.*
