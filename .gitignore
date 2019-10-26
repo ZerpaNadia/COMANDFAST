@@ -1,0 +1,10 @@
+
+*.dll
+*.pdb
+*.xml
+*.cache
+/COMANDFAST.Web/packages
+/COMANDFAST.Web/bin
+/COMANDFAST.Layer.Business/bin
+/COMANDFAST.Layer.Data/bin
+
