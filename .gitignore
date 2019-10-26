@@ -3,8 +3,9 @@
 *.pdb
 *.xml
 *.cache
-/COMANDFAST.Web/packages
-/COMANDFAST.Web/bin
-/COMANDFAST.Layer.Business/bin
-/COMANDFAST.Layer.Data/bin
+/COMANDFAST.Web/packages/
+/COMANDFAST.Web/bin/
+/COMANDFAST.Web/obj/
+/COMANDFAST.Layer.Business/bin/
+/COMANDFAST.Layer.Data/bin/
 
