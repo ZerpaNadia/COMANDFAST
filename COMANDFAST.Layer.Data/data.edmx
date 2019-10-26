@@ -1,0 +1,728 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="COMANDFASTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Errores">
+          <Key>
+            <PropertyRef Name="Id_Error" />
+          </Key>
+          <Property Name="Id_Error" Type="int" Nullable="false" />
+          <Property Name="Fecha_Hora" Type="datetime" Nullable="false" />
+          <Property Name="Proceso" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Id_Estado" />
+          </Key>
+          <Property Name="Id_Estado" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estado_Pedido">
+          <Key>
+            <PropertyRef Name="Id_Pedido" />
+          </Key>
+          <Property Name="Id_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Estado" Type="int" Nullable="false" />
+          <Property Name="Fecha_Hora" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Opiniones">
+          <Key>
+            <PropertyRef Name="Id_Calificacion" />
+          </Key>
+          <Property Name="Id_Calificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Puntaje" Type="smallint" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="Id_Pedido" />
+          </Key>
+          <Property Name="Id_Pedido" Type="int" Nullable="false" />
+          <Property Name="Id_Estado_Pedido" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="float" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pedido_Producto">
+          <Key>
+            <PropertyRef Name="Id_Pedido" />
+          </Key>
+          <Property Name="Id_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Producto" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+          </Key>
+          <Property Name="Id_Producto" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Precio" Type="float" Nullable="false" />
+          <Property Name="En_Menu" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Id_Tipo_Producto" Type="int" Nullable="false" />
+          <Property Name="Stock" Type="int" />
+        </EntityType>
+        <EntityType Name="Stock_Comanfast">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+          </Key>
+          <Property Name="Id_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cantidad" Type="int" />
+        </EntityType>
+        <EntityType Name="Tipo_Producto">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Producto" />
+          </Key>
+          <Property Name="Id_Tipo_Producto" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Usuario">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Usuario" />
+          </Key>
+          <Property Name="Id_Tipo_Usuario" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fecha_Nac" Type="date" Nullable="false" />
+          <Property Name="Login_Usuario" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Id_Tipo_Usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario_Pedido">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Pedido" Type="int" Nullable="false" />
+          <Property Name="Fecha_Hora" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Estado_Pedido_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="Estado_Pedido" Type="Self.Estado_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="Estado_Pedido">
+              <PropertyRef Name="Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estado_Pedido_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Estado_Pedido" Type="Self.Estado_Pedido" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Principal>
+            <Dependent Role="Estado_Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Opiniones_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Opiniones" Type="Self.Opiniones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="Opiniones">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_Producto_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Pedido_Producto" Type="Self.Pedido_Producto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Principal>
+            <Dependent Role="Pedido_Producto">
+              <PropertyRef Name="Id_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_Producto_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Pedido_Producto" Type="Self.Pedido_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Principal>
+            <Dependent Role="Pedido_Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_Tipo_Producto">
+          <End Role="Tipo_Producto" Type="Self.Tipo_Producto" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Producto">
+              <PropertyRef Name="Id_Tipo_Producto" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Id_Tipo_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Comanfast_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Stock_Comanfast" Type="Self.Stock_Comanfast" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Principal>
+            <Dependent Role="Stock_Comanfast">
+              <PropertyRef Name="Id_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Pedido_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Usuario_Pedido" Type="Self.Usuario_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Principal>
+            <Dependent Role="Usuario_Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Pedido_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Usuario_Pedido" Type="Self.Usuario_Pedido" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="Usuario_Pedido">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Tipo_Usuario">
+          <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Usuario">
+              <PropertyRef Name="Id_Tipo_Usuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_Tipo_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="COMANDFASTModelStoreContainer">
+          <EntitySet Name="Errores" EntityType="Self.Errores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado_Pedido" EntityType="Self.Estado_Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Opiniones" EntityType="Self.Opiniones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock_Comanfast" EntityType="Self.Stock_Comanfast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario_Pedido" EntityType="Self.Usuario_Pedido" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Estado_Pedido_Estado" Association="Self.FK_Estado_Pedido_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Estado_Pedido" EntitySet="Estado_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estado_Pedido_Pedido" Association="Self.FK_Estado_Pedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Estado_Pedido" EntitySet="Estado_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Opiniones_Usuario" Association="Self.FK_Opiniones_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Opiniones" EntitySet="Opiniones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Producto_Pedido" Association="Self.FK_Pedido_Producto_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Pedido_Producto" EntitySet="Pedido_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Producto_Producto" Association="Self.FK_Pedido_Producto_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Pedido_Producto" EntitySet="Pedido_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_Tipo_Producto" Association="Self.FK_Producto_Tipo_Producto">
+            <End Role="Tipo_Producto" EntitySet="Tipo_Producto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Comanfast_Producto" Association="Self.FK_Stock_Comanfast_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Stock_Comanfast" EntitySet="Stock_Comanfast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Pedido_Pedido" Association="Self.FK_Usuario_Pedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Usuario_Pedido" EntitySet="Usuario_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Pedido_Usuario" Association="Self.FK_Usuario_Pedido_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Usuario_Pedido" EntitySet="Usuario_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Tipo_Usuario" Association="Self.FK_Usuario_Tipo_Usuario">
+            <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="COMANDFASTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Errores">
+          <Key>
+            <PropertyRef Name="Id_Error" />
+          </Key>
+          <Property Name="Id_Error" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Hora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Proceso" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Id_Estado" />
+          </Key>
+          <Property Name="Id_Estado" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Estado_Pedido" Relationship="Self.FK_Estado_Pedido_Estado" FromRole="Estado" ToRole="Estado_Pedido" />
+        </EntityType>
+        <EntityType Name="Estado_Pedido">
+          <Key>
+            <PropertyRef Name="Id_Pedido" />
+          </Key>
+          <Property Name="Id_Pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Estado" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Hora" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK_Estado_Pedido_Estado" FromRole="Estado_Pedido" ToRole="Estado" />
+          <NavigationProperty Name="Pedido" Relationship="Self.FK_Estado_Pedido_Pedido" FromRole="Estado_Pedido" ToRole="Pedido" />
+        </EntityType>
+        <EntityType Name="Opiniones">
+          <Key>
+            <PropertyRef Name="Id_Calificacion" />
+          </Key>
+          <Property Name="Id_Calificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Puntaje" Type="Int16" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Opiniones_Usuario" FromRole="Opiniones" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="Id_Pedido" />
+          </Key>
+          <Property Name="Id_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="Id_Estado_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Double" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Estado_Pedido" Relationship="Self.FK_Estado_Pedido_Pedido" FromRole="Pedido" ToRole="Estado_Pedido" />
+          <NavigationProperty Name="Pedido_Producto" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido" ToRole="Pedido_Producto" />
+          <NavigationProperty Name="Usuario_Pedido" Relationship="Self.FK_Usuario_Pedido_Pedido" FromRole="Pedido" ToRole="Usuario_Pedido" />
+        </EntityType>
+        <EntityType Name="Pedido_Producto">
+          <Key>
+            <PropertyRef Name="Id_Pedido" />
+          </Key>
+          <Property Name="Id_Pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido_Producto" ToRole="Pedido" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_Pedido_Producto_Producto" FromRole="Pedido_Producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+          </Key>
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <Property Name="En_Menu" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Id_Tipo_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Stock" Type="Int32" />
+          <NavigationProperty Name="Pedido_Producto" Relationship="Self.FK_Pedido_Producto_Producto" FromRole="Producto" ToRole="Pedido_Producto" />
+          <NavigationProperty Name="Tipo_Producto" Relationship="Self.FK_Producto_Tipo_Producto" FromRole="Producto" ToRole="Tipo_Producto" />
+          <NavigationProperty Name="Stock_Comanfast" Relationship="Self.FK_Stock_Comanfast_Producto" FromRole="Producto" ToRole="Stock_Comanfast" />
+        </EntityType>
+        <EntityType Name="Stock_Comanfast">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+          </Key>
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cantidad" Type="Int32" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_Stock_Comanfast_Producto" FromRole="Stock_Comanfast" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Tipo_Producto">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Producto" />
+          </Key>
+          <Property Name="Id_Tipo_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_Tipo_Producto" FromRole="Tipo_Producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Tipo_Usuario">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Usuario" />
+          </Key>
+          <Property Name="Id_Tipo_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Tipo_Usuario" FromRole="Tipo_Usuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fecha_Nac" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Login_Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Tipo_Usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Opiniones" Relationship="Self.FK_Opiniones_Usuario" FromRole="Usuario" ToRole="Opiniones" />
+          <NavigationProperty Name="Tipo_Usuario" Relationship="Self.FK_Usuario_Tipo_Usuario" FromRole="Usuario" ToRole="Tipo_Usuario" />
+          <NavigationProperty Name="Usuario_Pedido" Relationship="Self.FK_Usuario_Pedido_Usuario" FromRole="Usuario" ToRole="Usuario_Pedido" />
+        </EntityType>
+        <EntityType Name="Usuario_Pedido">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Hora" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Pedido" Relationship="Self.FK_Usuario_Pedido_Pedido" FromRole="Usuario_Pedido" ToRole="Pedido" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Pedido_Usuario" FromRole="Usuario_Pedido" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Estado_Pedido_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="Estado_Pedido" Type="Self.Estado_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="Estado_Pedido">
+              <PropertyRef Name="Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estado_Pedido_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Estado_Pedido" Type="Self.Estado_Pedido" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Principal>
+            <Dependent Role="Estado_Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Opiniones_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Opiniones" Type="Self.Opiniones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="Opiniones">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_Producto_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Pedido_Producto" Type="Self.Pedido_Producto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Principal>
+            <Dependent Role="Pedido_Producto">
+              <PropertyRef Name="Id_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Pedido_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Usuario_Pedido" Type="Self.Usuario_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Principal>
+            <Dependent Role="Usuario_Pedido">
+              <PropertyRef Name="Id_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_Producto_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Pedido_Producto" Type="Self.Pedido_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Principal>
+            <Dependent Role="Pedido_Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_Tipo_Producto">
+          <End Role="Tipo_Producto" Type="Self.Tipo_Producto" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Producto">
+              <PropertyRef Name="Id_Tipo_Producto" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Id_Tipo_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Comanfast_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Stock_Comanfast" Type="Self.Stock_Comanfast" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Principal>
+            <Dependent Role="Stock_Comanfast">
+              <PropertyRef Name="Id_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Tipo_Usuario">
+          <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Usuario">
+              <PropertyRef Name="Id_Tipo_Usuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_Tipo_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Pedido_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Usuario_Pedido" Type="Self.Usuario_Pedido" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="Usuario_Pedido">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="COMANDFASTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Errores" EntityType="Self.Errores" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" />
+          <EntitySet Name="Estado_Pedido" EntityType="Self.Estado_Pedido" />
+          <EntitySet Name="Opiniones" EntityType="Self.Opiniones" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" />
+          <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="Stock_Comanfast" EntityType="Self.Stock_Comanfast" />
+          <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" />
+          <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Usuario_Pedido" EntityType="Self.Usuario_Pedido" />
+          <AssociationSet Name="FK_Estado_Pedido_Estado" Association="Self.FK_Estado_Pedido_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Estado_Pedido" EntitySet="Estado_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estado_Pedido_Pedido" Association="Self.FK_Estado_Pedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Estado_Pedido" EntitySet="Estado_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Opiniones_Usuario" Association="Self.FK_Opiniones_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Opiniones" EntitySet="Opiniones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Producto_Pedido" Association="Self.FK_Pedido_Producto_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Pedido_Producto" EntitySet="Pedido_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Pedido_Pedido" Association="Self.FK_Usuario_Pedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Usuario_Pedido" EntitySet="Usuario_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Producto_Producto" Association="Self.FK_Pedido_Producto_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Pedido_Producto" EntitySet="Pedido_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_Tipo_Producto" Association="Self.FK_Producto_Tipo_Producto">
+            <End Role="Tipo_Producto" EntitySet="Tipo_Producto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Comanfast_Producto" Association="Self.FK_Stock_Comanfast_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Stock_Comanfast" EntitySet="Stock_Comanfast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Tipo_Usuario" Association="Self.FK_Usuario_Tipo_Usuario">
+            <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Pedido_Usuario" Association="Self.FK_Usuario_Pedido_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Usuario_Pedido" EntitySet="Usuario_Pedido" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="COMANDFASTModelStoreContainer" CdmEntityContainer="COMANDFASTEntities">
+          <EntitySetMapping Name="Errores">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Errores">
+              <MappingFragment StoreEntitySet="Errores">
+                <ScalarProperty Name="Id_Error" ColumnName="Id_Error" />
+                <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
+                <ScalarProperty Name="Proceso" ColumnName="Proceso" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado_Pedido">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Estado_Pedido">
+              <MappingFragment StoreEntitySet="Estado_Pedido">
+                <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Opiniones">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Opiniones">
+              <MappingFragment StoreEntitySet="Opiniones">
+                <ScalarProperty Name="Id_Calificacion" ColumnName="Id_Calificacion" />
+                <ScalarProperty Name="Puntaje" ColumnName="Puntaje" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedido">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Pedido">
+              <MappingFragment StoreEntitySet="Pedido">
+                <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
+                <ScalarProperty Name="Id_Estado_Pedido" ColumnName="Id_Estado_Pedido" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedido_Producto">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Pedido_Producto">
+              <MappingFragment StoreEntitySet="Pedido_Producto">
+                <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="En_Menu" ColumnName="En_Menu" />
+                <ScalarProperty Name="Id_Tipo_Producto" ColumnName="Id_Tipo_Producto" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock_Comanfast">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Stock_Comanfast">
+              <MappingFragment StoreEntitySet="Stock_Comanfast">
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Producto">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Tipo_Producto">
+              <MappingFragment StoreEntitySet="Tipo_Producto">
+                <ScalarProperty Name="Id_Tipo_Producto" ColumnName="Id_Tipo_Producto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Usuario">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Tipo_Usuario">
+              <MappingFragment StoreEntitySet="Tipo_Usuario">
+                <ScalarProperty Name="Id_Tipo_Usuario" ColumnName="Id_Tipo_Usuario" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Fecha_Nac" ColumnName="Fecha_Nac" />
+                <ScalarProperty Name="Login_Usuario" ColumnName="Login_Usuario" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Id_Tipo_Usuario" ColumnName="Id_Tipo_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario_Pedido">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Usuario_Pedido">
+              <MappingFragment StoreEntitySet="Usuario_Pedido">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
+                <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

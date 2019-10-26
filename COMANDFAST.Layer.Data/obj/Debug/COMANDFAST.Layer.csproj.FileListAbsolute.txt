@@ -1,0 +1,7 @@
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer\bin\Debug\COMANDFAST.Layer.dll.config
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer\bin\Debug\COMANDFAST.Layer.dll
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer\bin\Debug\COMANDFAST.Layer.pdb
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer\bin\Debug\EntityFramework.dll
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer\obj\Debug\COMANDFAST.Layer.csprojResolveAssemblyReference.cache
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer\obj\Debug\COMANDFAST.Layer.dll
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer\obj\Debug\COMANDFAST.Layer.pdb

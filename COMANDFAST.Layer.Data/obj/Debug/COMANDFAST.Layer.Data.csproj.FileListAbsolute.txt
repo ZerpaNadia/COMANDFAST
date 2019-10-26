@@ -1,0 +1,6 @@
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\bin\Debug\COMANDFAST.Layer.Data.dll.config
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\bin\Debug\COMANDFAST.Layer.Data.dll
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\bin\Debug\COMANDFAST.Layer.Data.pdb
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\bin\Debug\EntityFramework.dll
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.dll
+C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.pdb

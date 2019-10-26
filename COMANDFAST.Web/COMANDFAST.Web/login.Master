@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="login.master.cs" Inherits="COMANDFAST.Web.login" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>COMAND FAST</title>
+    
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="Assets/css/main.css"/>
+    <!-- web-fonts -->
+	<link rel="stylesheet" type="text/css" href="Assets/fonts/google-font/Lora.css"/>
+	<link rel="stylesheet" type="text/css" href="Assets/fonts/google-font/Roboto.css"/>
+	<!-- //web-fonts -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="limiter">
+		<div class="container-login100" style="background-image: url('Assets/images/bg-01.jpg');">
+			<div class="wrap-login100">
+                <form id="form1" runat="server">
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+                </form>
+            </div>
+		</div>
+	</div>
+	<div id="dropDownSelect1"></div>
+</body>
+</html>

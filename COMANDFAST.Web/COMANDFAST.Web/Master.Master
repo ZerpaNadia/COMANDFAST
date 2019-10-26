@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="COMANDFAST.Web.Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>COMAND FAST</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- Custom Theme files -->
+	<link href="Assets/css/bootstrap.css" type="text/css" rel="stylesheet" media="all"/>
+	<link href="Assets/css/style.css" type="text/css" rel="stylesheet" media="all"/>  
+	<link rel="stylesheet" href="Assets/css/swipebox.css"/>
+	<!-- //Custom Theme files -->
+	<!-- font-awesome icons -->
+	<link href="Assets/css/font-awesome.css" rel="stylesheet"/>
+	<!-- //font-awesome icons -->
+
+	<!-- web-fonts -->
+	<link rel="stylesheet" type="text/css" href="Assets/fonts/google-font/Lora.css"/>
+	<link rel="stylesheet" type="text/css" href="Assets/fonts/google-font/Roboto.css"/>
+		<!-- //web-fonts -->
+	<style type="text/css">
+		@media(max-width:1366px){
+			.banner {
+		    min-height: 90px;
+			}
+		}
+
+		@media(max-width:414px){
+			.banner {
+			min-height: 70px;
+			}
+		}
+
+		@media(max-width:480px){
+			.agile-services-w3{
+				min-height: 480px;
+			}
+		}
+
+		body{
+			background-color: #0a0509;
+		}
+	</style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- banner -->
+	<div class="banner">
+	<!-- header -->
+		<div class="header">
+			<div class="container">	
+				<nav class="navbar navbar-default">
+					<div class="navbar-header">
+						<h1><a  href="index-usuario.html"><span>C</span>OMAND <span>F</span>AST</a></h1>
+					</div>	
+				</nav>
+			</div> 
+		</div>
+		<!-- //header -->
+	</div>
+<!--//banner-section -->
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    <div class="w3l-footer">
+		<div class="copyright-wthree">
+			<p>&copy; 2019 2do Cuat. - Trabajo Final | <a href=""> Comand Fast </a></p>
+		</div>
+	</div>
+</body>
+</html>

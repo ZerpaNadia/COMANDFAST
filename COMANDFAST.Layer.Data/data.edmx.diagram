@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6779b89b2d5440b1aeafa3122271edc5" Name="Diagram1">
+        <EntityTypeShape EntityType="COMANDFASTModel.Errores" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Estado" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Estado_Pedido" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Opiniones" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Pedido" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Pedido_Producto" Width="1.5" PointX="10.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Producto" Width="1.5" PointX="8" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Stock_Comanfast" Width="1.5" PointX="10.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Tipo_Producto" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Tipo_Usuario" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Usuario" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Usuario_Pedido" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Estado_Pedido_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Estado_Pedido_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Opiniones_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Pedido_Producto_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Usuario_Pedido_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Pedido_Producto_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Producto_Tipo_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Stock_Comanfast_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Usuario_Tipo_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Usuario_Pedido_Usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
