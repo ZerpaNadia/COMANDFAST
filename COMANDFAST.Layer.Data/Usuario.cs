@@ -17,6 +17,7 @@ namespace COMANDFAST.Layer.Data
         public Usuario()
         {
             this.Opiniones = new HashSet<Opiniones>();
+            this.Usuario_Pedido = new HashSet<Usuario_Pedido>();
         }
     
         public int Id_Usuario { get; set; }
@@ -25,10 +26,11 @@ namespace COMANDFAST.Layer.Data
         public System.DateTime Fecha_Nac { get; set; }
         public string Login_Usuario { get; set; }
         public string Pass { get; set; }
+        public string Email { get; set; }
         public int Id_Tipo_Usuario { get; set; }
     
         public virtual ICollection<Opiniones> Opiniones { get; set; }
         public virtual Tipo_Usuario Tipo_Usuario { get; set; }
-        public virtual Usuario_Pedido Usuario_Pedido { get; set; }
+        public virtual ICollection<Usuario_Pedido> Usuario_Pedido { get; set; }
     }
 }

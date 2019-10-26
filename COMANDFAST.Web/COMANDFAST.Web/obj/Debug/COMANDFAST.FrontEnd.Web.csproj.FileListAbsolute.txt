@@ -9,3 +9,15 @@ C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Web\COMANDFAST.Web\bin\COMANDF
 C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Web\COMANDFAST.Web\bin\COMANDFAST.Layer.Data.pdb
 C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Web\COMANDFAST.Web\obj\Debug\COMANDFAST.Web.dll
 C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Web\COMANDFAST.Web\obj\Debug\COMANDFAST.Web.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\bin\COMANDFAST.Web.dll.config
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\bin\COMANDFAST.Web.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\bin\COMANDFAST.Web.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\bin\COMANDFAST.Layer.Business.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\bin\COMANDFAST.Layer.Data.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\bin\EntityFramework.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\bin\COMANDFAST.Layer.Business.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\bin\COMANDFAST.Layer.Data.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\bin\EntityFramework.xml
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\obj\Debug\COMANDFAST.FrontEnd.Web.csprojResolveAssemblyReference.cache
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\obj\Debug\COMANDFAST.Web.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Web\COMANDFAST.Web\obj\Debug\COMANDFAST.Web.pdb

@@ -16,7 +16,7 @@ namespace COMANDFAST.Layer.Data
     {
         public int Id_Pedido { get; set; }
         public int Id_Producto { get; set; }
-        public short Cantidad { get; set; }
+        public int Cantidad { get; set; }
     
         public virtual Pedido Pedido { get; set; }
         public virtual Producto Producto { get; set; }

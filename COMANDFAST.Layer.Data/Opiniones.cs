@@ -15,7 +15,7 @@ namespace COMANDFAST.Layer.Data
     public partial class Opiniones
     {
         public int Id_Calificacion { get; set; }
-        public short Puntaje { get; set; }
+        public int Puntaje { get; set; }
         public string Descripcion { get; set; }
         public int Id_Usuario { get; set; }
     

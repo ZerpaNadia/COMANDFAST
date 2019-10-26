@@ -16,6 +16,8 @@ namespace COMANDFAST.Layer.Data
     {
         public Pedido()
         {
+            this.Estado_Pedido = new HashSet<Estado_Pedido>();
+            this.Pedido_Producto = new HashSet<Pedido_Producto>();
             this.Usuario_Pedido = new HashSet<Usuario_Pedido>();
         }
     
@@ -24,8 +26,8 @@ namespace COMANDFAST.Layer.Data
         public double Monto { get; set; }
         public string Descripcion { get; set; }
     
-        public virtual Estado_Pedido Estado_Pedido { get; set; }
-        public virtual Pedido_Producto Pedido_Producto { get; set; }
+        public virtual ICollection<Estado_Pedido> Estado_Pedido { get; set; }
+        public virtual ICollection<Pedido_Producto> Pedido_Producto { get; set; }
         public virtual ICollection<Usuario_Pedido> Usuario_Pedido { get; set; }
     }
 }

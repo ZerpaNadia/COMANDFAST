@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="COMANDFASTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="COMANDFASTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Errores">
     <Key>
       <PropertyRef Name="Id_Error" />
@@ -14,13 +14,17 @@
       <PropertyRef Name="Id_Estado" />
     </Key>
     <Property Name="Id_Estado" Type="int" Nullable="false" />
-    <Property Name="Descripcion" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="30" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMANDFAST.dbo.Estado_Pedido' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Estado_Pedido">
     <Key>
       <PropertyRef Name="Id_Pedido" />
+      <PropertyRef Name="Id_Estado" />
+      <PropertyRef Name="Fecha_Hora" />
     </Key>
-    <Property Name="Id_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Pedido" Type="int" Nullable="false" />
     <Property Name="Id_Estado" Type="int" Nullable="false" />
     <Property Name="Fecha_Hora" Type="datetime" Nullable="false" />
   </EntityType>
@@ -29,7 +33,7 @@
       <PropertyRef Name="Id_Calificacion" />
     </Key>
     <Property Name="Id_Calificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Puntaje" Type="smallint" Nullable="false" />
+    <Property Name="Puntaje" Type="int" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="Id_Usuario" Type="int" Nullable="false" />
   </EntityType>
@@ -42,13 +46,17 @@
     <Property Name="Monto" Type="float" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMANDFAST.dbo.Pedido_Producto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Pedido_Producto">
     <Key>
       <PropertyRef Name="Id_Pedido" />
+      <PropertyRef Name="Id_Producto" />
+      <PropertyRef Name="Cantidad" />
     </Key>
-    <Property Name="Id_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Pedido" Type="int" Nullable="false" />
     <Property Name="Id_Producto" Type="int" Nullable="false" />
-    <Property Name="Cantidad" Type="smallint" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Producto">
     <Key>
@@ -59,14 +67,8 @@
     <Property Name="Precio" Type="float" Nullable="false" />
     <Property Name="En_Menu" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="Id_Tipo_Producto" Type="int" Nullable="false" />
-    <Property Name="Stock" Type="int" />
-  </EntityType>
-  <EntityType Name="Stock_Comanfast">
-    <Key>
-      <PropertyRef Name="Id_Producto" />
-    </Key>
-    <Property Name="Id_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Cantidad" Type="int" />
+    <Property Name="Stock" Type="int" Nullable="false" />
+    <Property Name="Activo" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
   <EntityType Name="Tipo_Producto">
     <Key>
@@ -92,13 +94,18 @@
     <Property Name="Fecha_Nac" Type="date" Nullable="false" />
     <Property Name="Login_Usuario" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="Pass" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Id_Tipo_Usuario" Type="int" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMANDFAST.dbo.Usuario_Pedido' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Usuario_Pedido">
     <Key>
       <PropertyRef Name="Id_Usuario" />
+      <PropertyRef Name="Id_Pedido" />
+      <PropertyRef Name="Fecha_Hora" />
     </Key>
-    <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Usuario" Type="int" Nullable="false" />
     <Property Name="Id_Pedido" Type="int" Nullable="false" />
     <Property Name="Fecha_Hora" Type="datetime" Nullable="false" />
   </EntityType>
@@ -116,7 +123,7 @@
   </Association>
   <Association Name="FK_Estado_Pedido_Pedido">
     <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
-    <End Role="Estado_Pedido" Type="Self.Estado_Pedido" Multiplicity="0..1" />
+    <End Role="Estado_Pedido" Type="Self.Estado_Pedido" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pedido">
         <PropertyRef Name="Id_Pedido" />
@@ -140,7 +147,7 @@
   </Association>
   <Association Name="FK_Pedido_Producto_Pedido">
     <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
-    <End Role="Pedido_Producto" Type="Self.Pedido_Producto" Multiplicity="0..1" />
+    <End Role="Pedido_Producto" Type="Self.Pedido_Producto" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pedido">
         <PropertyRef Name="Id_Pedido" />
@@ -174,18 +181,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Stock_Comanfast_Producto">
-    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-    <End Role="Stock_Comanfast" Type="Self.Stock_Comanfast" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="Id_Producto" />
-      </Principal>
-      <Dependent Role="Stock_Comanfast">
-        <PropertyRef Name="Id_Producto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Usuario_Pedido_Pedido">
     <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
     <End Role="Usuario_Pedido" Type="Self.Usuario_Pedido" Multiplicity="*" />
@@ -200,7 +195,7 @@
   </Association>
   <Association Name="FK_Usuario_Pedido_Usuario">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-    <End Role="Usuario_Pedido" Type="Self.Usuario_Pedido" Multiplicity="0..1" />
+    <End Role="Usuario_Pedido" Type="Self.Usuario_Pedido" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Usuario">
         <PropertyRef Name="Id_Usuario" />
@@ -225,16 +220,33 @@
   <EntityContainer Name="COMANDFASTModelStoreContainer">
     <EntitySet Name="Errores" EntityType="Self.Errores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Estado_Pedido" EntityType="Self.Estado_Pedido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Opiniones" EntityType="Self.Opiniones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Stock_Comanfast" EntityType="Self.Stock_Comanfast" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Usuario_Pedido" EntityType="Self.Usuario_Pedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado_Pedido" EntityType="Self.Estado_Pedido" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Estado_Pedido].[Id_Pedido] AS [Id_Pedido], 
+[Estado_Pedido].[Id_Estado] AS [Id_Estado], 
+[Estado_Pedido].[Fecha_Hora] AS [Fecha_Hora]
+FROM [dbo].[Estado_Pedido] AS [Estado_Pedido]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Pedido_Producto].[Id_Pedido] AS [Id_Pedido], 
+[Pedido_Producto].[Id_Producto] AS [Id_Producto], 
+[Pedido_Producto].[Cantidad] AS [Cantidad]
+FROM [dbo].[Pedido_Producto] AS [Pedido_Producto]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Usuario_Pedido" EntityType="Self.Usuario_Pedido" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Usuario_Pedido].[Id_Usuario] AS [Id_Usuario], 
+[Usuario_Pedido].[Id_Pedido] AS [Id_Pedido], 
+[Usuario_Pedido].[Fecha_Hora] AS [Fecha_Hora]
+FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_Estado_Pedido_Estado" Association="Self.FK_Estado_Pedido_Estado">
       <End Role="Estado" EntitySet="Estado" />
       <End Role="Estado_Pedido" EntitySet="Estado_Pedido" />
@@ -258,10 +270,6 @@
     <AssociationSet Name="FK_Producto_Tipo_Producto" Association="Self.FK_Producto_Tipo_Producto">
       <End Role="Tipo_Producto" EntitySet="Tipo_Producto" />
       <End Role="Producto" EntitySet="Producto" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Stock_Comanfast_Producto" Association="Self.FK_Stock_Comanfast_Producto">
-      <End Role="Producto" EntitySet="Producto" />
-      <End Role="Stock_Comanfast" EntitySet="Stock_Comanfast" />
     </AssociationSet>
     <AssociationSet Name="FK_Usuario_Pedido_Pedido" Association="Self.FK_Usuario_Pedido_Pedido">
       <End Role="Pedido" EntitySet="Pedido" />

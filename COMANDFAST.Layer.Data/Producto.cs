@@ -24,10 +24,10 @@ namespace COMANDFAST.Layer.Data
         public double Precio { get; set; }
         public string En_Menu { get; set; }
         public int Id_Tipo_Producto { get; set; }
-        public Nullable<int> Stock { get; set; }
+        public int Stock { get; set; }
+        public string Activo { get; set; }
     
         public virtual ICollection<Pedido_Producto> Pedido_Producto { get; set; }
         public virtual Tipo_Producto Tipo_Producto { get; set; }
-        public virtual Stock_Comanfast Stock_Comanfast { get; set; }
     }
 }

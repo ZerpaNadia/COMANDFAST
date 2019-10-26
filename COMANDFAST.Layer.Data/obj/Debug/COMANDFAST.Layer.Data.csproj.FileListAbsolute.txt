@@ -4,3 +4,11 @@ C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\bin\Debug\COMANDFAS
 C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\bin\Debug\EntityFramework.dll
 C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.dll
 C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\bin\Debug\COMANDFAST.Layer.Data.dll.config
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\bin\Debug\COMANDFAST.Layer.Data.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\bin\Debug\COMANDFAST.Layer.Data.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\bin\Debug\EntityFramework.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\bin\Debug\EntityFramework.xml
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.csprojResolveAssemblyReference.cache
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.pdb

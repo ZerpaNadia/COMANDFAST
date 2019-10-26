@@ -14,3 +14,12 @@ C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Business\bin\Debug\COMAN
 C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Business\obj\Debug\COMANDFAST.Layer.Business.csprojResolveAssemblyReference.cache
 C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Business\obj\Debug\COMANDFAST.Layer.Business.dll
 C:\Users\P046234\Desktop\ProyectoFinal\COMANDFAST.Layer.Business\obj\Debug\COMANDFAST.Layer.Business.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Business\bin\Debug\COMANDFAST.Layer.Business.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Business\bin\Debug\COMANDFAST.Layer.Business.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Business\bin\Debug\COMANDFAST.Layer.Data.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Business\bin\Debug\EntityFramework.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Business\bin\Debug\COMANDFAST.Layer.Data.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Business\bin\Debug\EntityFramework.xml
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Business\obj\Debug\COMANDFAST.Layer.Business.csprojResolveAssemblyReference.cache
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Business\obj\Debug\COMANDFAST.Layer.Business.dll
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Business\obj\Debug\COMANDFAST.Layer.Business.pdb
