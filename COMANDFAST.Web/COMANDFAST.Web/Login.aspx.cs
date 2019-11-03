@@ -11,7 +11,18 @@ namespace COMANDFAST.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtRegistro.Visible = false;
 
+            if (!IsPostBack)
+            {
+                string esRegistro = Request.QueryString["reg"];
+
+                if (esRegistro == "true")
+                {
+                    txtRegistro.Text = "* El Registro fue realizado con exito.";
+                    txtRegistro.Visible = true;
+                }
+            }
         }
     }
 }

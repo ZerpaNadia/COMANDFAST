@@ -13,12 +13,12 @@ namespace COMANDFAST.Layer.Data.DAO
 {
     public class DAOUsuario
     {
+        static COMANDFASTEntities entities = new COMANDFASTEntities();
+
         public static void CrearUsuario(DTOUsuario usuarioDTO)
         {
             try
             {
-                COMANDFASTEntities entities = new COMANDFASTEntities();
-
                 Usuario usuario = new Usuario()
                 {
                     Apellido = usuarioDTO.Apellido,
@@ -27,7 +27,7 @@ namespace COMANDFAST.Layer.Data.DAO
                     Login_Usuario = usuarioDTO.Usuario,
                     Id_Tipo_Usuario = usuarioDTO.TipoUsuario,
                     Pass = usuarioDTO.Password,
-                    Email = "ñlalalala@gmail.com"
+                    Email = usuarioDTO.Email,
                 };
 
 
@@ -57,6 +57,30 @@ namespace COMANDFAST.Layer.Data.DAO
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        public static string VerificarUsuario(DTOUsuario usuarioDTO)
+        {
+            try
+            {
+                var auxEmail = entities.Usuario.Where(X => X.Email == usuarioDTO.Email).ToList();
+                var auxUsuario = entities.Usuario.Where(X => X.Login_Usuario == usuarioDTO.Usuario).ToList();
+
+                if (auxEmail.Count() > 0)
+                {
+                    return "* El Email ingresado ya se encuentra registrado. ";
+                }
+                else if (auxUsuario.Count() > 0)
+                {
+                    return "* El Usuario ingresado ya se encuentra registrado. ";
+                }
+
+                return "";
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
     }

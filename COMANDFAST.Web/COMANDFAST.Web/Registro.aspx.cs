@@ -13,7 +13,7 @@ namespace COMANDFAST.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtError.Visible = false;
         }
 
         protected void CreateUser_Click(object sender, EventArgs e)
@@ -25,10 +25,20 @@ namespace COMANDFAST.Web
                     txtApellido.Text,
                     DateTime.Today, // puse la fecha de hoy, despues se cambia
                     txtUsuario.Text,
-                    txtPassword.Text
+                    txtPassword.Text,
+                    txtEmail.Text
                     );
 
-                bsUsuario.CrearUsuario(usuarioDTO);
+                if (String.IsNullOrEmpty(bsUsuario.VerificarUsuario(usuarioDTO)))
+                {
+                    bsUsuario.CrearUsuario(usuarioDTO);
+                    Response.Redirect("Login.aspx?reg=true");
+                }
+                else
+                {
+                    txtError.Visible = true;
+                    txtError.Text = bsUsuario.VerificarUsuario(usuarioDTO);
+                }
             }
             catch (Exception ex)
             {

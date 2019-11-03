@@ -12,6 +12,7 @@
     <!-- web-fonts -->
 	<link rel="stylesheet" type="text/css" href="Assets/fonts/google-font/Lora.css"/>
 	<link rel="stylesheet" type="text/css" href="Assets/fonts/google-font/Roboto.css"/>
+    <link href="Assets/css/font-awesome.css" rel="stylesheet"/>
 	<!-- //web-fonts -->
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

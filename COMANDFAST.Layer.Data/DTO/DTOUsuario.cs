@@ -25,6 +25,8 @@ namespace COMANDFAST.Layer.Data.DTO
 
         public int TipoUsuario { get; set; }
 
+        public string Email { get; set; }
+
         #endregion
 
         #region Constructores

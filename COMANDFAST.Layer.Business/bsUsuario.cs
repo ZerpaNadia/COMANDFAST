@@ -22,7 +22,7 @@ namespace COMANDFAST.Layer.Business
             }
         }
 
-        public static DTOUsuario CrearUsuarioDTO(string nombre, string apellido, DateTime fechaNacimiento, string usuario, string password)
+        public static DTOUsuario CrearUsuarioDTO(string nombre, string apellido, DateTime fechaNacimiento, string usuario, string password, string email)
         {
             DTOUsuario usuarioDTO = new DTOUsuario();
             usuarioDTO.Nombre = nombre;
@@ -31,7 +31,20 @@ namespace COMANDFAST.Layer.Business
             usuarioDTO.Usuario = usuario;
             usuarioDTO.Password = password;
             usuarioDTO.TipoUsuario = (int)TipoUsuarioEnum.Cliente;
+            usuarioDTO.Email = email;
             return usuarioDTO;
+        }
+
+        public static string VerificarUsuario(DTOUsuario usuarioDTO)
+        {
+            try
+            {
+                return DAOUsuario.VerificarUsuario(usuarioDTO);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }
