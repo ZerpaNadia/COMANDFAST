@@ -22,10 +22,11 @@ namespace COMANDFAST.Layer.Data
         public int Id_Producto { get; set; }
         public string Descripcion { get; set; }
         public double Precio { get; set; }
-        public string En_Menu { get; set; }
+        public bool En_Menu { get; set; }
         public int Id_Tipo_Producto { get; set; }
         public int Stock { get; set; }
-        public string Activo { get; set; }
+        public bool Activo { get; set; }
+        public string Titulo_Producto { get; set; }
     
         public virtual ICollection<Pedido_Producto> Pedido_Producto { get; set; }
         public virtual Tipo_Producto Tipo_Producto { get; set; }

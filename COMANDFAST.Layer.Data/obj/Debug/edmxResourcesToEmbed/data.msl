@@ -39,19 +39,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Producto">
-      <EntityTypeMapping TypeName="COMANDFASTModel.Producto">
-        <MappingFragment StoreEntitySet="Producto">
-          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Precio" ColumnName="Precio" />
-          <ScalarProperty Name="En_Menu" ColumnName="En_Menu" />
-          <ScalarProperty Name="Id_Tipo_Producto" ColumnName="Id_Tipo_Producto" />
-          <ScalarProperty Name="Stock" ColumnName="Stock" />
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Tipo_Producto">
       <EntityTypeMapping TypeName="COMANDFASTModel.Tipo_Producto">
         <MappingFragment StoreEntitySet="Tipo_Producto">
@@ -106,6 +93,20 @@
           <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
           <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
           <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="COMANDFASTModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="Titulo_Producto" ColumnName="Titulo_Producto" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Id_Tipo_Producto" ColumnName="Id_Tipo_Producto" />
+          <ScalarProperty Name="En_Menu" ColumnName="En_Menu" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

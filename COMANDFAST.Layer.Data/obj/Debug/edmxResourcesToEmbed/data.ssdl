@@ -62,13 +62,14 @@ warning 6002: The table/view 'COMANDFAST.dbo.Pedido_Producto' does not have a pr
     <Key>
       <PropertyRef Name="Id_Producto" />
     </Key>
-    <Property Name="Id_Producto" Type="int" Nullable="false" />
-    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Precio" Type="float" Nullable="false" />
-    <Property Name="En_Menu" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="En_Menu" Type="bit" Nullable="false" />
     <Property Name="Id_Tipo_Producto" Type="int" Nullable="false" />
     <Property Name="Stock" Type="int" Nullable="false" />
-    <Property Name="Activo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Titulo_Producto" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Tipo_Producto">
     <Key>

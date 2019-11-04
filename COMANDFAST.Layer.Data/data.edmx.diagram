@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="COMANDFASTModel.Estado" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="COMANDFASTModel.Opiniones" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="COMANDFASTModel.Pedido" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="COMANDFASTModel.Producto" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="COMANDFASTModel.Tipo_Producto" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="COMANDFASTModel.Tipo_Usuario" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="COMANDFASTModel.Usuario" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
@@ -21,10 +20,11 @@
         <AssociationConnector Association="COMANDFASTModel.FK_Estado_Pedido_Pedido" ManuallyRouted="false" />
         <AssociationConnector Association="COMANDFASTModel.FK_Pedido_Producto_Pedido" ManuallyRouted="false" />
         <AssociationConnector Association="COMANDFASTModel.FK_Usuario_Pedido_Pedido" ManuallyRouted="false" />
-        <AssociationConnector Association="COMANDFASTModel.FK_Pedido_Producto_Producto" ManuallyRouted="false" />
-        <AssociationConnector Association="COMANDFASTModel.FK_Producto_Tipo_Producto" ManuallyRouted="false" />
         <AssociationConnector Association="COMANDFASTModel.FK_Usuario_Tipo_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="COMANDFASTModel.FK_Usuario_Pedido_Usuario" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Producto" Width="1.5" PointX="3" PointY="14.625" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Pedido_Producto_Producto" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Producto_Tipo_Producto" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

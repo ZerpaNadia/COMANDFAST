@@ -80,123 +80,88 @@
 					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 					   <div class="w3_agile_recipe-grid">
                             <div class="col-md-6 menu-grids">
-								<div class="menu-text">									      
-									<div class="menu-text-left">
-										<div class="rep-w3l-img">
-										  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
-										</div>
-									     <div class="rep-w3l-text">
-										   <h4>PATICOMPLÉ...................</h4>
-										  <h6>Queso gruyere - Tomates Marinados - Lechuga Capuccina</h6>
-										</div>										
-										<div class="clearfix"> </div>
-									</div>
-									<div class="menu-text-right">
-										<h4>$ 240</h4>
-										<input type="button" class="submit agregar" onclick="sumar()"/>
-										<input type="button" class="submit quitar" onclick="restar()"/>
-									</div>
-									<div class="clearfix"> </div>
-								</div>	
-								<div class="menu-text">
-									<div class="menu-text-left">
-											<div class="rep-w3l-img">
-											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
-											</div>
-										   <div class="rep-w3l-text">
-											  <h4>GRINGA..............................</h4>
-											  <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
-											</div>
-											
-											<div class="clearfix"> </div>
-										</div>
-									<div class="menu-text-right">
-										<h4>$250</h4>
-										<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="menu-text">
-									<div class="menu-text-left">
-											<div class="rep-w3l-img">
-											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
-											</div>
-										   <div class="rep-w3l-text">
-											  <h4>DEL BOSQUE............................</h4>
-											  <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
-											</div>
-											
-											<div class="clearfix"> </div>
-										</div>
-									<div class="menu-text-right">
-										<h4>$240</h4>
-										<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-									</div>
-									<div class="clearfix"> </div>
-								</div>
+                                <asp:Repeater ID="repProductos" runat="server">
+                                    <ItemTemplate>
+                                        <div class="menu-text">									      
+									        <div class="menu-text-left">
+										        <div class="rep-w3l-img">
+										          <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
+										        </div>
+									             <div class="rep-w3l-text">
+                                                     <h4><asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></h4>
+										          <h6><asp:Label ID="lblDescripcion" runat="server" Text='<%# Eval("DescProducto") %>'></asp:Label></h6>
+										        </div>										
+										        <div class="clearfix"> </div>
+									        </div>
+									        <div class="menu-text-right">
+										        <h4><asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("Precio") %>'></asp:Label></h4>
+										        <input type="button" class="submit agregar" onclick="sumar()"/>
+										        <input type="button" class="submit quitar" onclick="restar()"/>
+									        </div>
+									        <div class="clearfix"> </div>
+								        </div>	
+                                    </ItemTemplate>
+                                </asp:Repeater>
 							</div>
-							   <div class="col-md-6 menu-grids">
-								<div class="menu-text">
-									<div class="menu-text-left">
-											<div class="rep-w3l-img">
-											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
-											</div>
-										   <div class="rep-w3l-text">
-											  <h4>TAREA FINA............................</h4>
-											  <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
-											</div>
+							<div class="col-md-6 menu-grids">
+							    <div class="menu-text">
+								    <div class="menu-text-left">
+										    <div class="rep-w3l-img">
+											    <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
+										    </div>
+										    <div class="rep-w3l-text">
+											    <h4>TAREA FINA............................</h4>
+											    <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
+										    </div>
 											
-											<div class="clearfix"> </div>
-										</div>
-									<div class="menu-text-right">
-										<h4>$260</h4>
-										<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-
-								<div class="menu-text">
-									<div class="menu-text-left">
-											<div class="rep-w3l-img">
-											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
-											</div>
-										   <div class="rep-w3l-text">
-											  <h4>DOÑA TOTA............................</h4>
-											  <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
-											</div>
+										    <div class="clearfix"> </div>
+									    </div>
+								    <div class="menu-text-right">
+									    <h4>$260</h4>
+									    <input type="button" class="submit agregar" onclick="sumar()">
+									    <input type="button" class="submit quitar" onclick="restar()">
+								    </div>
+								    <div class="clearfix"> </div>
+							    </div>
+							    <div class="menu-text">
+								    <div class="menu-text-left">
+										    <div class="rep-w3l-img">
+											    <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
+										    </div>
+										    <div class="rep-w3l-text">
+											    <h4>DOÑA TOTA............................</h4>
+											    <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
+										    </div>
 											
-											<div class="clearfix"> </div>
-										</div>
-									<div class="menu-text-right">
-										<h4>$250</h4>
-										<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="menu-text">
-									<div class="menu-text-left">
-											<div class="rep-w3l-img">
-											  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
-											</div>
-										   <div class="rep-w3l-text">
-											  <h4>CAPRICHOSA...........................</h4>
-											  <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
-											</div>
+										    <div class="clearfix"> </div>
+									    </div>
+								    <div class="menu-text-right">
+									    <h4>$250</h4>
+									    <input type="button" class="submit agregar" onclick="sumar()">
+									    <input type="button" class="submit quitar" onclick="restar()">
+								    </div>
+								    <div class="clearfix"> </div>
+							    </div>
+							    <div class="menu-text">
+								    <div class="menu-text-left">
+										    <div class="rep-w3l-img">
+											    <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
+										    </div>
+										    <div class="rep-w3l-text">
+											    <h4>CAPRICHOSA...........................</h4>
+											    <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
+										    </div>
 											
-											<div class="clearfix"> </div>
-										</div>
-									<div class="menu-text-right">
-										<h4>$240</h4>
-										<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
+										    <div class="clearfix"> </div>
+									    </div>
+								    <div class="menu-text-right">
+									    <h4>$240</h4>
+									    <input type="button" class="submit agregar" onclick="sumar()">
+									    <input type="button" class="submit quitar" onclick="restar()">
+								    </div>
+								    <div class="clearfix"> </div>
+							    </div>
+						    </div>
 							<div class="clearfix"> </div>
 						</div>
 					</div>
@@ -474,3 +439,4 @@
 		});
 	</script>
 </asp:Content>
+
