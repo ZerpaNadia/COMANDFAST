@@ -46,5 +46,17 @@ namespace COMANDFAST.Layer.Business
                 throw;
             }
         }
+
+        public static bool VerificarUsuarioLogin(string usuario, string password)
+        {
+            try
+            {
+                return DAOUsuario.VerificarUsuarioLogin(usuario, password);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }    
     }
 }

@@ -83,5 +83,53 @@ namespace COMANDFAST.Layer.Data.DAO
                 throw;
             }
         }
+
+        public static bool VerificarUsuarioLogin(string userName, string passWord)
+        {
+            string lookupPassword = null;
+
+            // Chequeo el usuario ingresado. Que no sea vacio ni mayor a 50 su largo.
+            if ((null == userName) || (0 == userName.Length) || (userName.Length > 50))
+            {
+                return false;
+            }
+
+            // Valido que el password no este vacio ni mas grande que 30 caracteres
+            if ((null == passWord) || (0 == passWord.Length) || (passWord.Length > 30))
+            {
+                return false;
+            }
+
+            try
+            {
+
+                // Busco el usuario en la base.
+                //Query para buscar los datos que se ingresaron en la bd.
+                var query = from usu in entities.Usuario
+                            where (usu.Login_Usuario == userName || usu.Email == userName)
+                        && usu.Pass == passWord
+                            select usu.Pass;
+
+                var usuarioCOMANDFAST = query.FirstOrDefault();
+                lookupPassword = usuarioCOMANDFAST.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            // Si no hay password retorno falso
+            if (null == lookupPassword)
+            {
+                return false;
+            }
+
+            // Comparo el password encontrado con el ingresado con case sensitive
+            if (0 == string.Compare(lookupPassword, passWord, false))
+                return true;
+            else
+                return false;
+        }
     }
 }
