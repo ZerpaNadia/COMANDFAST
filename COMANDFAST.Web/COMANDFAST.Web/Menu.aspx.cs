@@ -19,12 +19,8 @@ namespace COMANDFAST.Web
         {
             var productos = bsProductos.ObtenerProductos();
 
-            repProductos.DataSource = productos;
-            repProductos.DataBind();
-
-            //ejemplos prueba examen
-            string mistring = "1";
-            int entero = Int32.Parse(string.Concat("1", mistring));
+            repHamburguesas.DataSource = productos.Where(X => X.IdTipoProducto == (int)TipoProductoEnum.Hamburguesa);
+            repHamburguesas.DataBind();
 
         }
     }

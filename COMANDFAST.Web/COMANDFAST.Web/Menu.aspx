@@ -41,9 +41,16 @@
 			height: 70px;
 			width: 70px;
 		}
+
+        .text-Cantidad {
+            width:30px;
+            height:32px;
+            position:absolute;
+            margin-top:10px;
+        }
 	</style>
 	<script type="text/javascript">
-		function sumar(){
+		function Sumar(e){
 			cant = $('#cantidad-carrito').text();
 
 			cant = parseInt(cant) + 1;
@@ -51,7 +58,7 @@
 			$('#cantidad-carrito').text(cant);
 		} 
 
-		function restar(){
+		function Restar(e){
 			cant = $('#cantidad-carrito').text();
 
 			cant = parseInt(cant) - 1;
@@ -78,90 +85,34 @@
 				</ul>
 				<div id="myTabContent" class="tab-content">
 					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-					   <div class="w3_agile_recipe-grid">
-                            <div class="col-md-6 menu-grids">
-                                <asp:Repeater ID="repProductos" runat="server">
+					   <div class="w3_agile_recipe-grid">                            
+                                <asp:Repeater ID="repHamburguesas" runat="server">
                                     <ItemTemplate>
-                                        <div class="menu-text">									      
-									        <div class="menu-text-left">
-										        <div class="rep-w3l-img">
-										          <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
-										        </div>
-									             <div class="rep-w3l-text">
-                                                     <h4><asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></h4>
-										          <h6><asp:Label ID="lblDescripcion" runat="server" Text='<%# Eval("DescProducto") %>'></asp:Label></h6>
-										        </div>										
-										        <div class="clearfix"> </div>
-									        </div>
-									        <div class="menu-text-right">
-										        <h4><asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("Precio") %>'></asp:Label></h4>
-										        <input type="button" class="submit agregar" onclick="sumar()"/>
-										        <input type="button" class="submit quitar" onclick="restar()"/>
-									        </div>
-									        <div class="clearfix"> </div>
-								        </div>	
+                                        <div class="col-md-6 menu-grids">
+                                            <div class="menu-text">									      
+									            <div class="menu-text-left">
+										            <div class="rep-w3l-img">
+										              <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
+										            </div>
+									                 <div class="rep-w3l-text">
+                                                         <h4><asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></h4>
+										              <h6><asp:Label ID="lblDescripcion" runat="server" Text='<%# Eval("DescProducto") %>'></asp:Label></h6>
+										            </div>										
+										            <div class="clearfix"> </div>
+									            </div>
+									            <div class="menu-text-right">
+										            <h4><asp:Label ID="lblPrecio" runat="server" Text='<%# "$ " + Eval("Precio") %>'></asp:Label></h4>
+                                                    <div>
+                                                        <input type="button" id="btnRestar" value="" onclick='Restar(this)' class="submit quitar">
+                                                        <asp:TextBox ID="txtCantidad" CssClass="text-Cantidad" runat="server"></asp:TextBox>
+                                                        <input type="button" id="btnAgregar" value="" onclick="Sumar(this)" class="submit agregar">
+                                                    </div>
+									            </div>
+									            <div class="clearfix"> </div>
+								            </div>	
+                                        </div>
                                     </ItemTemplate>
-                                </asp:Repeater>
-							</div>
-							<div class="col-md-6 menu-grids">
-							    <div class="menu-text">
-								    <div class="menu-text-left">
-										    <div class="rep-w3l-img">
-											    <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
-										    </div>
-										    <div class="rep-w3l-text">
-											    <h4>TAREA FINA............................</h4>
-											    <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
-										    </div>
-											
-										    <div class="clearfix"> </div>
-									    </div>
-								    <div class="menu-text-right">
-									    <h4>$260</h4>
-									    <input type="button" class="submit agregar" onclick="sumar()">
-									    <input type="button" class="submit quitar" onclick="restar()">
-								    </div>
-								    <div class="clearfix"> </div>
-							    </div>
-							    <div class="menu-text">
-								    <div class="menu-text-left">
-										    <div class="rep-w3l-img">
-											    <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
-										    </div>
-										    <div class="rep-w3l-text">
-											    <h4>DOÑA TOTA............................</h4>
-											    <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
-										    </div>
-											
-										    <div class="clearfix"> </div>
-									    </div>
-								    <div class="menu-text-right">
-									    <h4>$250</h4>
-									    <input type="button" class="submit agregar" onclick="sumar()">
-									    <input type="button" class="submit quitar" onclick="restar()">
-								    </div>
-								    <div class="clearfix"> </div>
-							    </div>
-							    <div class="menu-text">
-								    <div class="menu-text-left">
-										    <div class="rep-w3l-img">
-											    <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
-										    </div>
-										    <div class="rep-w3l-text">
-											    <h4>CAPRICHOSA...........................</h4>
-											    <h6>Queso Cheddar - Batata Frita - Sarza - Salsa Huancaina</h6>
-										    </div>
-											
-										    <div class="clearfix"> </div>
-									    </div>
-								    <div class="menu-text-right">
-									    <h4>$240</h4>
-									    <input type="button" class="submit agregar" onclick="sumar()">
-									    <input type="button" class="submit quitar" onclick="restar()">
-								    </div>
-								    <div class="clearfix"> </div>
-							    </div>
-						    </div>
+                                </asp:Repeater>							
 							<div class="clearfix"> </div>
 						</div>
 					</div>
@@ -229,7 +180,7 @@
 									<div class="clearfix"> </div>
 								</div>
 								</div>
-								   <div class="col-md-6 menu-grids">
+							<div class="col-md-6 menu-grids">
 										<div class="menu-text">
 										      
 											<div class="menu-text-left">
@@ -272,8 +223,8 @@
 										<div class="clearfix"> </div>
 									</div>
 								</div>
-					    	</div>
-						</div>
+					    </div>
+					</div>
 					<div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
 					    <div class="w3_agile_recipe-grid">
                                     <div class="col-md-6 menu-grids">

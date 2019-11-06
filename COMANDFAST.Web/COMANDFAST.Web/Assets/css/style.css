@@ -86,8 +86,9 @@ body a:hover{
 }
 
 .agregar {
+    margin-left:33px;
 	margin-top: 10px;
-	width: 46px;
+	width: 30px;
     height: 32px;
     background-image: url('../images/mas.png');
     background-repeat: no-repeat;
@@ -106,7 +107,7 @@ body a:hover{
 }
 .quitar {
 	margin-top: 10px;
-	width: 46px;
+	width: 30px;
     height: 32px;
     background-image: url('../images/menos.png');
     background-repeat: no-repeat;
