@@ -26,6 +26,8 @@ namespace COMANDFAST.Layer.Data.DTO
 
         public bool Activo { get; set; }
 
+        public int Cantidad { get; set; }
+
         #endregion
 
         #region Constructores

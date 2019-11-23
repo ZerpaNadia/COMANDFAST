@@ -44,100 +44,84 @@
 		}
 
 		.book-form span{
-			font-size: 2.2rem;
 			position: inherit;
+            color:#3b3b3e;
 		}
 
 		.book-form input[type="text"] {
 			padding: 10px;
-			width: 20%
+			width: 60px;
+			text-align: center;
+			position: absolute;
+			height: 33px;
+			margin-top: 10px;
 		}
+
+        .agregar {
+            margin-left: 63px;
+        }
 	</style>
+    <script type="text/javascript">
+        function Sumar(e) {
+            cant = $('#cantidad-carrito').text();
+
+            cant = parseInt(cant) + 1;
+
+            $('#cantidad-carrito').text(cant);
+        }
+
+        function Restar(e) {
+            cant = $('#cantidad-carrito').text();
+
+            cant = parseInt(cant) - 1;
+
+            if (cant < 0) {
+                cant = 0;
+            }
+
+            $('#cantidad-carrito').text(cant);
+        }
+	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     	<div class="recipes-w3l-agile" id="menu">
 	  <div class="container">
 	    <h3 class="tittle">CARRITO</h3>
 	      <div class="agileits-tabs">
-				<div class="menu-text">									      
-					<div class="menu-text-left">
-						<div class="rep-w3l-img">
-						  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
-						</div>
-					    <div class="rep-w3l-text book-form">
-							  <h4>DEL BOSQUE............................</h4>
-							  <span class="fa fa-minus-circle" aria-hidden="true"></span>
-							  <input type="text" value="1" name="">
-							  <span class="fa fa-plus-circle" aria-hidden="true"></span>						  
-							</div>											
-						<div class="clearfix"> </div>
-					</div>
-					<div class="menu-text-right">
-						<h4>$ 240</h4>
-					</div>
-					<div class="clearfix"> </div>
-				</div>	
-				<div class="menu-text">
-					<div class="menu-text-left">
-							<div class="rep-w3l-img">
-							  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
+              <div class="col-md-8 col-md-offset-2">
+              <asp:Repeater ID="repProductos" runat="server">
+                    <ItemTemplate>
+                        <div class="menu-text">
+							<div class="menu-text-left">
+								<div class="rep-w3l-img">
+									<img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
+								</div>
+                                <div class="rep-w3l-text book-form">
+                                    <asp:HiddenField ID="Id" runat="server" Value='<%# Bind("IdProducto") %>'></asp:HiddenField>
+							        <h4><asp:Label ID="Label1" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></h4>
+							        <div>
+                                        <input type="button" id="btnRestar" value="" onclick='Restar(this)' class="submit quitar">
+                                        <asp:TextBox ID="txtCantidad" Text='<%# Eval("Cantidad") %>' CssClass="text-Cantidad" runat="server"></asp:TextBox>
+                                        <input type="button" id="btnAgregar" value="" onclick="Sumar(this)" class="submit agregar">
+                                    </div>
+							    </div>
+						        <div class="clearfix"> </div>
 							</div>
-						   <div class="rep-w3l-text book-form">
-							  <h4>DEL BOSQUE............................</h4>
-							  <span class="fa fa-minus-circle" aria-hidden="true"></span>
-							  <input type="text" value="1" name="">
-							  <span class="fa fa-plus-circle" aria-hidden="true"></span>
-							</div>							
+                            <div class="menu-text-right">
+						        <h4><asp:Label ID="Label2" runat="server" Text='<%# "$ " + Eval("Precio") %>'></asp:Label></h4>
+					        </div>
 							<div class="clearfix"> </div>
-						</div>
-					<div class="menu-text-right">
-						<h4>$ 240</h4>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="menu-text">
-					<div class="menu-text-left">
-							<div class="rep-w3l-img">
-							  <img src="Assets/images/f3.jpg" alt=" " class="img-responsive">
-							</div>
-						   <div class="rep-w3l-text book-form">
-							  <h4>PAPAS FRITAS............................</h4>
-							  <span class="fa fa-minus-circle" aria-hidden="true"></span>
-							  <input type="text" value="1" name="">
-							  <span class="fa fa-plus-circle" aria-hidden="true"></span>
-							</div>							
-							<div class="clearfix"> </div>
-						</div>
-					<div class="menu-text-right">
-						<h4>$ 80</h4>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="menu-text">
-					<div class="menu-text-left">
-						<div class="rep-w3l-img">
-						  <img src="Assets/images/d1.jpg" alt=" " class="img-responsive">
-						</div>
-					     <div class="rep-w3l-text  book-form">
-						   <h4>AGUA/GASEOSAS...........</h4>
-						  	<span class="fa fa-minus-circle" aria-hidden="true"></span>
-							  <input type="text" value="2" name="">
-							  <span class="fa fa-plus-circle" aria-hidden="true"></span>
-						</div>						
-						<div class="clearfix"> </div>
-					</div>
-					<div class="menu-text-right">
-						<h4>$ 50</h4>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
+						</div>	
+                    </ItemTemplate>
+                </asp:Repeater>
+                </div>
 				<div class="menu-text">
 					<div class="menu-text-left">
 						<br>
 						<h4>SUBTOTAL............................ </h4>
 					</div>
 					<div class="menu-text-right">
-						<h4>$ 590</h4>
+						<h4><asp:Label ID="lblTotal" runat="server" Text=""></asp:Label></h4>
 					</div>
 					<div class="clearfix"> </div>
 				</div>

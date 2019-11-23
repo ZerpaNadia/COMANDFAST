@@ -47,28 +47,73 @@
             height:32px;
             position:absolute;
             margin-top:10px;
+            text-align:center;
         }
 	</style>
 	<script type="text/javascript">
-		function Sumar(e){
-			cant = $('#cantidad-carrito').text();
 
-			cant = parseInt(cant) + 1;
+		function Sumar(tipo, indice){
+		    if (tipo == "H") {
+		        cant = $('#ContentPlaceHolder1_repHamburguesas_txtCantidad_' + indice).val();
 
-			$('#cantidad-carrito').text(cant);
+			    cant = parseInt(cant) + 1;
+
+			    $('#ContentPlaceHolder1_repHamburguesas_txtCantidad_' + indice).val(cant);
+                $('#ContentPlaceHolder1_repHamburguesas_txtCantidad_' + indice).text(cant);
+		    }
+		    else if (tipo == "B") {
+		        cant = $('#ContentPlaceHolder1_repBebidas_txtCantidad_' + indice).val();
+
+		        cant = parseInt(cant) + 1;
+
+		        $('#ContentPlaceHolder1_repBebidas_txtCantidad_' + indice).val(cant);
+                $('#ContentPlaceHolder1_repBebidas_txtCantidad_' + indice).text(cant);
+		    }
+		    else if (tipo == "E") {
+		        cant = $('#ContentPlaceHolder1_repExtras_txtCantidad_' + indice).val();
+
+		        cant = parseInt(cant) + 1;
+
+		        $('#ContentPlaceHolder1_repExtras_txtCantidad_' + indice).val(cant);
+                $('#ContentPlaceHolder1_repExtras_txtCantidad_' + indice).text(cant);
+		    }
 		} 
 
-		function Restar(e){
-			cant = $('#cantidad-carrito').text();
+		function Restar(tipo, indice) {
+		    if (tipo == "H") {
+		        cant = $('#ContentPlaceHolder1_repHamburguesas_txtCantidad_' + indice).val();
 
-			cant = parseInt(cant) - 1;
+		        cant = parseInt(cant) - 1;
 
-			if (cant < 0) 
-			{
-				cant = 0;
-			}
+		        if (cant < 0) {
+		            cant = 0;
+		        }
 
-			$('#cantidad-carrito').text(cant);
+		        $('#ContentPlaceHolder1_repHamburguesas_txtCantidad_' + indice).val(cant);
+                $('#ContentPlaceHolder1_repHamburguesas_txtCantidad_' + indice).text(cant);
+		    }
+		    else if (tipo == "B") {
+		        cant = $('#ContentPlaceHolder1_repBebidas_txtCantidad_' + indice).val();
+
+		        cant = parseInt(cant) - 1;
+		        if (cant < 0) {
+		            cant = 0;
+		        }
+
+		        $('#ContentPlaceHolder1_repBebidas_txtCantidad_' + indice).val(cant);
+                $('#ContentPlaceHolder1_repBebidas_txtCantidad_' + indice).text(cant);
+		    }
+		    else if (tipo == "E") {
+		        cant = $('#ContentPlaceHolder1_repExtras_txtCantidad_' + indice).val();
+
+		        cant = parseInt(cant) - 1;
+		        if (cant < 0) {
+		            cant = 0;
+		        }
+
+		        $('#ContentPlaceHolder1_repExtras_txtCantidad_' + indice).val(cant);
+                $('#ContentPlaceHolder1_repExtras_txtCantidad_' + indice).text(cant);
+		    }
 		}
 	</script>
 </asp:Content>
@@ -95,268 +140,99 @@
 										              <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
 										            </div>
 									                 <div class="rep-w3l-text">
+                                                         <asp:HiddenField ID="Id" runat="server" Value='<%# Bind("IdProducto") %>'></asp:HiddenField>
                                                          <h4><asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></h4>
 										              <h6><asp:Label ID="lblDescripcion" runat="server" Text='<%# Eval("DescProducto") %>'></asp:Label></h6>
-										            </div>										
+										            </div>
 										            <div class="clearfix"> </div>
 									            </div>
 									            <div class="menu-text-right">
 										            <h4><asp:Label ID="lblPrecio" runat="server" Text='<%# "$ " + Eval("Precio") %>'></asp:Label></h4>
                                                     <div>
-                                                        <input type="button" id="btnRestar" value="" onclick='Restar(this)' class="submit quitar">
-                                                        <asp:TextBox ID="txtCantidad" CssClass="text-Cantidad" runat="server"></asp:TextBox>
-                                                        <input type="button" id="btnAgregar" value="" onclick="Sumar(this)" class="submit agregar">
+                                                        <input type="button" id="btnRestar"  onclick='<%# "Restar(\"H\", " + Container.ItemIndex + ")"%>' class="submit quitar">
+                                                        <asp:TextBox ID="txtCantidad" Text="" CssClass="text-Cantidad" runat="server"></asp:TextBox>
+                                                        <input type="button" id="btnAgregar"  onclick='<%# "Sumar(\"H\", " + Container.ItemIndex + ")"%>' class="submit agregar">
                                                     </div>
 									            </div>
 									            <div class="clearfix"> </div>
 								            </div>	
                                         </div>
                                     </ItemTemplate>
-                                </asp:Repeater>							
+                                </asp:Repeater>
 							<div class="clearfix"> </div>
 						</div>
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 				        <div class="w3_agile_recipe-grid">
-                            <div class="col-md-6 menu-grids">
-								<div class="menu-text">
-								      
-									<div class="menu-text-left">
-										<div class="rep-w3l-img">
-										  <img src="Assets/images/d1.jpg" alt=" " class="img-responsive">
-										</div>
-									     <div class="rep-w3l-text">
-										   <h4>AGUA/GASEOSAS...........</h4>
-										  <h6>H20 - Levite</h6>
-										</div>
-										
-										<div class="clearfix"> </div>
-									</div>
-									<div class="menu-text-right">
-										<h4>$ 50</h4>
-										<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-									</div>
-									<div class="clearfix"> </div>
-								</div>	
-
-								<div class="menu-text">
-									<div class="menu-text-left">
-											<div class="rep-w3l-img">
-											  <img src="Assets/images/d1.jpg" alt=" " class="img-responsive">
-											</div>
-										   <div class="rep-w3l-text">
-											  <h4>LASTAS 550cc.................</h4>
-											  <h6>Irish Red Ale - Blonde Ale - Apa Sorachi</h6>
-											</div>
-											
-											<div class="clearfix"> </div>
-										</div>
-									<div class="menu-text-right">
-										<h4>$120</h4>
-										<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="menu-text">
-									<div class="menu-text-left">
-											<div class="rep-w3l-img">
-											  <img src="Assets/images/f3.jpg" alt=" " class="img-responsive">
-											</div>
-										   <div class="rep-w3l-text">
-											  <h4>VASAO DE VINO..............</h4>
-											  <h6>La Liga de los Enologos</h6>
-											</div>
-										
-											<div class="clearfix"> </div>
-										</div>
-
-									<div class="menu-text-right">
-										<h4>$70</h4>
-										<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								</div>
-							<div class="col-md-6 menu-grids">
-										<div class="menu-text">
-										      
-											<div class="menu-text-left">
-												<div class="rep-w3l-img">
-												  <img src="Assets/images/f4.jpg" alt=" " class="img-responsive">
-												</div>
-											     <div class="rep-w3l-text">
-												   <h4>PINTAS.........................</h4>
-												  <h6>Blonde Ale - Irish - Ipa</h6>
-												</div>
-												
-												<div class="clearfix"> </div>
-											</div>
-											<div class="menu-text-right">
-												<h4>$110</h4>
-												<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-											</div>
-											<div class="clearfix"> </div>
-										</div>	
-
-									<div class="menu-text">
-										<div class="menu-text-left">
-												<div class="rep-w3l-img">
-												  <img src="Assets/images/f5.jpg" alt=" " class="img-responsive">
-												</div>
-											   <div class="rep-w3l-text">
-												   <h4>FERNET BRANCA.................</h4>
-												  <h6> 550cc</h6>
-												</div>
-												
-												<div class="clearfix"> </div>
-											</div>
-
-										<div class="menu-text-right">
-											<h4>$130</h4>
-											<input type="button" class="submit agregar" onclick="sumar()">
-											<input type="button" class="submit quitar" onclick="restar()">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
+                            <asp:Repeater ID="repBebidas" runat="server">
+                                <ItemTemplate>
+                                    <div class="col-md-6 menu-grids">
+                                        <div class="menu-text">									      
+									        <div class="menu-text-left">
+										        <div class="rep-w3l-img">
+										            <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
+										        </div>
+									                <div class="rep-w3l-text">
+                                                        <asp:HiddenField ID="Id" runat="server" Value='<%# Bind("IdProducto") %>'></asp:HiddenField>
+                                                        <h4><asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></h4>
+										            <h6><asp:Label ID="lblDescripcion" runat="server" Text='<%# Eval("DescProducto") %>'></asp:Label></h6>
+										        </div>
+										        <div class="clearfix"> </div>
+									        </div>
+									        <div class="menu-text-right">
+										        <h4><asp:Label ID="lblPrecio" runat="server" Text='<%# "$ " + Eval("Precio") %>'></asp:Label></h4>
+                                                <div>
+                                                    <input type="button" id="btnRestar" value="" onclick='<%# "Restar(\"B\", " + Container.ItemIndex + ")"%>' class="submit quitar">
+                                                    <asp:TextBox ID="txtCantidad" Text="" CssClass="text-Cantidad" runat="server"></asp:TextBox>
+                                                    <input type="button" id="btnAgregar" value="" onclick='<%# "Sumar(\"B\", " + Container.ItemIndex + ")"%>' class="submit agregar">
+                                                </div>
+									        </div>
+									        <div class="clearfix"> </div>
+								        </div>	
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
 					    </div>
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
 					    <div class="w3_agile_recipe-grid">
+                            <asp:Repeater ID="repExtras" runat="server">
+                                <ItemTemplate>
                                     <div class="col-md-6 menu-grids">
-										<div class="menu-text">
-										      
-											<div class="menu-text-left">
-												<div class="rep-w3l-img">
-												  <img src="Assets/images/f3.jpg" alt=" " class="img-responsive">
-												</div>
-											     <div class="rep-w3l-text">
-												   <h4>PAPAS FRITAS............</h4>
-												  <h6>Cheddar</h6>
-												</div>
-												
-												<div class="clearfix"> </div>
-											</div>
-											<div class="menu-text-right">
-												<h4>$ 80</h4>
-												<input type="button" class="submit agregar" onclick="sumar()">
-												<input type="button" class="submit quitar" onclick="restar()">
-											</div>
-											<div class="clearfix"> </div>
-										</div>	
-
-									<div class="menu-text">
-										<div class="menu-text-left">
-												<div class="rep-w3l-img">
-												  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
-												</div>
-											   <div class="rep-w3l-text">
-												  <h4>Lorem ipsum dolor............</h4>
-												  <h6>with wild mushrooms and asparagus</h6>
-												</div>
-												
-												<div class="clearfix"> </div>
-											</div>
-										<div class="menu-text-right">
-											<h4>$25</h4>
-											<input type="button" class="submit agregar" onclick="sumar()">
-											<input type="button" class="submit quitar" onclick="restar()">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="menu-text">
-										<div class="menu-text-left">
-												<div class="rep-w3l-img">
-												  <img src="Assets/images/f4.jpg" alt=" " class="img-responsive">
-												</div>
-											   <div class="rep-w3l-text">
-												  <h4>Lorem ipsum dolor............</h4>
-												  <h6>with wild mushrooms and asparagus</h6>
-												</div>
-											
-												<div class="clearfix"> </div>
-											</div>
-
-										<div class="menu-text-right">
-											<h4>$30</h4>
-											<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-								   <div class="col-md-6 menu-grids">
-										<div class="menu-text">
-										      
-											<div class="menu-text-left">
-												<div class="rep-w3l-img">
-												  <img src="Assets/images/f6.jpg" alt=" " class="img-responsive">
-												</div>
-											     <div class="rep-w3l-text">
-												   <h4>Lorem ipsum dolor............</h4>
-												  <h6>with wild mushrooms and asparagus</h6>
-												</div>
-												
-												<div class="clearfix"> </div>
-											</div>
-											<div class="menu-text-right">
-												<h4>$ 50</h4>
-												<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-											</div>
-											<div class="clearfix"> </div>
-										</div>	
-
-									<div class="menu-text">
-										<div class="menu-text-left">
-												<div class="rep-w3l-img">
-												  <img src="Assets/images/f2.jpg" alt=" " class="img-responsive">
-												</div>
-											   <div class="rep-w3l-text">
-												   <h4>Lorem ipsum dolor............</h4>
-												  <h6>with wild mushrooms and asparagus</h6>
-												</div>
-												
-												<div class="clearfix"> </div>
-											</div>
-
-										<div class="menu-text-right">
-											<h4>$25</h4>
-											<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="menu-text">
-										<div class="menu-text-left">
-												<div class="rep-w3l-img">
-												  <img src="Assets/images/f1.jpg" alt=" " class="img-responsive">
-												</div>
-											   <div class="rep-w3l-text">
-												  <h4>Lorem ipsum dolor............</h4>
-												  <h6>with wild mushrooms and asparagus</h6>
-												</div>
-											
-												<div class="clearfix"> </div>
-											</div>
-										<div class="menu-text-right">
-											<h4>$30</h4>
-											<input type="button" class="submit agregar" onclick="sumar()">
-										<input type="button" class="submit quitar" onclick="restar()">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-								<div class="clearfix"> </div>
+                                        <div class="menu-text">									      
+									        <div class="menu-text-left">
+										        <div class="rep-w3l-img">
+										            <img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
+										        </div>
+									                <div class="rep-w3l-text">
+                                                        <asp:HiddenField ID="Id" runat="server" Value='<%# Bind("IdProducto") %>'></asp:HiddenField>
+                                                        <h4><asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></h4>
+										            <h6><asp:Label ID="lblDescripcion" runat="server" Text='<%# Eval("DescProducto") %>'></asp:Label></h6>
+										        </div>
+										        <div class="clearfix"> </div>
+									        </div>
+									        <div class="menu-text-right">
+										        <h4><asp:Label ID="lblPrecio" runat="server" Text='<%# "$ " + Eval("Precio") %>'></asp:Label></h4>
+                                                <div>
+                                                    <input type="button" id="btnRestar" value="" onclick='<%# "Restar(\"E\", " + Container.ItemIndex + ")"%>' class="submit quitar">
+                                                    <asp:TextBox ID="txtCantidad" Text="" CssClass="text-Cantidad" runat="server"></asp:TextBox>
+                                                    <input type="button" id="btnAgregar" value="" onclick='<%# "Sumar(\"E\", " + Container.ItemIndex + ")"%>' class="submit agregar">
+                                                </div>
+									        </div>
+									        <div class="clearfix"> </div>
+								        </div>	
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+						    <div class="clearfix"> </div>
 					    </div>
 					</div>
 				</div>
 			</div>
 		  </div>
+          <div class="menu-text-right">
+            <asp:Button ID="btnAceptar" CssClass="boton-principal" runat="server" Text="Siguiente" OnClick="btnAceptar_Click" />
+          </div>
 	  </div>
 	</div>
 	<script src="Assets/js/jquery-2.2.3.min.js"></script> 
@@ -373,7 +249,7 @@
 		});
 		
 	</script>
-	<script src="js/jquery.swipebox.min.js"></script> 
+	<script src="Assets/js/jquery.swipebox.min.js"></script> 
 	<script type="text/javascript">
 			jQuery(function($) {
 				$(".swipebox").swipebox();
@@ -383,10 +259,12 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
-				event.preventDefault();
-		
-		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				event.preventDefault();		
+		        $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 			});
+
+            $("[id*=txtCantidad_]").val('0');
+            $("[id*=txtCantidad_]").text('0');
 		});
 	</script>
 </asp:Content>
