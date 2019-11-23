@@ -61,25 +61,28 @@
             margin-left: 63px;
         }
 	</style>
+    <script  src="https://code.jquery.com/jquery-3.1.1.js"  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="  crossorigin="anonymous"></script>
     <script type="text/javascript">
-        function Sumar(e) {
-            cant = $('#cantidad-carrito').text();
+        function Sumar(indice) {
+            cant = $('#ContentPlaceHolder1_repProductos_txtCantidad_' + indice).val();
 
-            cant = parseInt(cant) + 1;
+			cant = parseInt(cant) + 1;
 
-            $('#cantidad-carrito').text(cant);
+			$('#ContentPlaceHolder1_repProductos_txtCantidad_' + indice).val(cant);
+            $('#ContentPlaceHolder1_repProductos_txtCantidad_' + indice).text(cant);
         }
 
-        function Restar(e) {
-            cant = $('#cantidad-carrito').text();
+        function Restar(indice) {
+            cant = $('#ContentPlaceHolder1_repProductos_txtCantidad_' + indice).val();
 
-            cant = parseInt(cant) - 1;
+		    cant = parseInt(cant) - 1;
 
-            if (cant < 0) {
-                cant = 0;
-            }
+		    if (cant < 0) {
+		        cant = 0;
+		    }
 
-            $('#cantidad-carrito').text(cant);
+		    $('#ContentPlaceHolder1_repProductos_txtCantidad_' + indice).val(cant);
+            $('#ContentPlaceHolder1_repProductos_txtCantidad_' + indice).text(cant);
         }
 	</script>
 </asp:Content>
@@ -100,9 +103,9 @@
                                     <asp:HiddenField ID="Id" runat="server" Value='<%# Bind("IdProducto") %>'></asp:HiddenField>
 							        <h4><asp:Label ID="Label1" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></h4>
 							        <div>
-                                        <input type="button" id="btnRestar" value="" onclick='Restar(this)' class="submit quitar">
+                                        <input type="button" id="btnRestar" value="" onclick='<%# "Restar(" + Container.ItemIndex + ")"%>' class="submit quitar">
                                         <asp:TextBox ID="txtCantidad" Text='<%# Eval("Cantidad") %>' CssClass="text-Cantidad" runat="server"></asp:TextBox>
-                                        <input type="button" id="btnAgregar" value="" onclick="Sumar(this)" class="submit agregar">
+                                        <input type="button" id="btnAgregar" value="" onclick='<%# "Sumar(" + Container.ItemIndex + ")"%>' class="submit agregar">
                                     </div>
 							    </div>
 						        <div class="clearfix"> </div>
@@ -114,7 +117,7 @@
 						</div>	
                     </ItemTemplate>
                 </asp:Repeater>
-                </div>
+                
 				<div class="menu-text">
 					<div class="menu-text-left">
 						<br>
@@ -140,7 +143,7 @@
 					<div class="menu-text-right">
                         <asp:Button ID="btnConfirmar" class="boton-principal" runat="server" Text="Confirmar" OnClick="btnConfirmar_Click" />
 					</div>
-				</div>
+				</div></div>
 		  </div>		  
 	  </div>
 	</div>

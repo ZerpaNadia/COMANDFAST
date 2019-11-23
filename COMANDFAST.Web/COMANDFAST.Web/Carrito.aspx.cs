@@ -29,7 +29,34 @@ namespace COMANDFAST.Web
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("DetallePedido.aspx");
+        }
+
+        protected List<DTOProducto> ObtenerProductos()
+        {
+            var productos = new List<DTOProducto>();
+
+            foreach (RepeaterItem itemProductos in repProductos.Items)
+            {
+                var item = new DTOProducto();
+
+                var id = itemProductos.FindControl("Id") as HiddenField;
+                item.IdProducto = Int32.Parse(id.Value);
+
+                var precio = itemProductos.FindControl("lblPrecio") as Label;
+                var p = precio.Text.Split(' ');
+                item.Precio = Int32.Parse(p[1]);
+
+                var cantidad = itemProductos.FindControl("txtCantidad") as TextBox;
+                item.Cantidad = Int32.Parse(cantidad.Text == "" ? "0" : cantidad.Text);
+
+                if (Int32.Parse(cantidad.Text) > 0)
+                {
+                    productos.Add(item);
+                }
+            }        
+            return productos;
         }
     }
 }
