@@ -139,6 +139,7 @@
     <Content Include="Carrito.aspx" />
     <Content Include="Cocina.aspx" />
     <Content Include="Detalle-pedido.aspx" />
+    <Content Include="DetallePedido.aspx" />
     <Content Include="Ejemplo.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Master.Master" />
@@ -194,6 +195,13 @@
     </Compile>
     <Compile Include="Detalle-pedido.aspx.designer.cs">
       <DependentUpon>Detalle-pedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetallePedido.aspx.cs">
+      <DependentUpon>DetallePedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallePedido.aspx.designer.cs">
+      <DependentUpon>DetallePedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ejemplo.aspx.cs">
       <DependentUpon>Ejemplo.aspx</DependentUpon>

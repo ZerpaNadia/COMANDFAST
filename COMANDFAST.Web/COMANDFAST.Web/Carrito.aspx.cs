@@ -18,12 +18,18 @@ namespace COMANDFAST.Web
             repProductos.DataBind();
 
             double acum = 0;
+
             foreach (var p in productos)
             {
-                acum += p.Precio;
+                acum += p.Cantidad * p.Precio;
             }
 
             lblTotal.Text = "$ " + acum.ToString();
+        }
+
+        protected void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DetallePedido.aspx");
         }
     }
 }

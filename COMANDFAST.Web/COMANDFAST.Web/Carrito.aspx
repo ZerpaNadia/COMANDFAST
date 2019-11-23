@@ -132,15 +132,13 @@
 						<br>
 						<textarea cols="7" rows="5" style="margin-left: 6rem; width: 100%"></textarea>
 					</div>
-					<div class="menu-text-right">
-						
+					<div class="menu-text-right">						
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-
 				<div class="menu-text"><br>
 					<div class="menu-text-right">
-						<a class="boton-principal" href="detalle-pedido.html">Confirmar</a>
+                        <asp:Button ID="btnConfirmar" class="boton-principal" runat="server" Text="Confirmar" OnClick="btnConfirmar_Click" />
 					</div>
 				</div>
 		  </div>		  
