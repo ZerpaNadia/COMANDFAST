@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="COMANDFASTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="COMANDFASTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Errores">
           <Key>
             <PropertyRef Name="Id_Error" />
@@ -46,22 +46,19 @@ warning 6002: The table/view 'COMANDFAST.dbo.Estado_Pedido' does not have a prim
           <Key>
             <PropertyRef Name="Id_Pedido" />
           </Key>
-          <Property Name="Id_Pedido" Type="int" Nullable="false" />
+          <Property Name="Id_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Estado_Pedido" Type="int" Nullable="false" />
           <Property Name="Monto" Type="float" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'COMANDFAST.dbo.Pedido_Producto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Pedido_Producto">
           <Key>
-            <PropertyRef Name="Id_Pedido" />
-            <PropertyRef Name="Id_Producto" />
-            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id_Pedido" Type="int" Nullable="false" />
           <Property Name="Id_Producto" Type="int" Nullable="false" />
           <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -228,6 +225,7 @@ warning 6002: The table/view 'COMANDFAST.dbo.Usuario_Pedido' does not have a pri
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Opiniones" EntityType="Self.Opiniones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" Schema="dbo" store:Type="Tables" />
@@ -238,13 +236,6 @@ warning 6002: The table/view 'COMANDFAST.dbo.Usuario_Pedido' does not have a pri
 [Estado_Pedido].[Id_Estado] AS [Id_Estado], 
 [Estado_Pedido].[Fecha_Hora] AS [Fecha_Hora]
 FROM [dbo].[Estado_Pedido] AS [Estado_Pedido]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Pedido_Producto].[Id_Pedido] AS [Id_Pedido], 
-[Pedido_Producto].[Id_Producto] AS [Id_Producto], 
-[Pedido_Producto].[Cantidad] AS [Cantidad]
-FROM [dbo].[Pedido_Producto] AS [Pedido_Producto]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Usuario_Pedido" EntityType="Self.Usuario_Pedido" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -290,7 +281,8 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="COMANDFASTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -325,7 +317,7 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
           <Key>
             <PropertyRef Name="Id_Pedido" />
           </Key>
-          <Property Name="Id_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="Id_Pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Estado_Pedido" Type="Int32" Nullable="false" />
           <Property Name="Monto" Type="Double" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -333,13 +325,39 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
           <NavigationProperty Name="Pedido_Producto" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido" ToRole="Pedido_Producto" />
           <NavigationProperty Name="Usuario_Pedido" Relationship="Self.FK_Usuario_Pedido_Pedido" FromRole="Pedido" ToRole="Usuario_Pedido" />
         </EntityType>
+        <EntityType Name="Pedido_Producto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido_Producto" ToRole="Pedido" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_Pedido_Producto_Producto" FromRole="Pedido_Producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+          </Key>
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <Property Name="En_Menu" Type="Boolean" Nullable="false" />
+          <Property Name="Id_Tipo_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Titulo_Producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Pedido_Producto" Relationship="Self.FK_Pedido_Producto_Producto" FromRole="Producto" ToRole="Pedido_Producto" />
+          <NavigationProperty Name="Tipo_Producto" Relationship="Self.FK_Producto_Tipo_Producto" FromRole="Producto" ToRole="Tipo_Producto" />
+        </EntityType>
         <EntityType Name="Tipo_Producto">
           <Key>
             <PropertyRef Name="Id_Tipo_Producto" />
           </Key>
           <Property Name="Id_Tipo_Producto" Type="Int32" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Producto" Relationship="COMANDFASTModel.FK_Producto_Tipo_Producto" FromRole="Tipo_Producto" ToRole="Producto" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_Tipo_Producto" FromRole="Tipo_Producto" ToRole="Producto" />
         </EntityType>
         <EntityType Name="Tipo_Usuario">
           <Key>
@@ -376,18 +394,6 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
           <Property Name="Fecha_Hora" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Estado" Relationship="Self.FK_Estado_Pedido_Estado" FromRole="Estado_Pedido" ToRole="Estado" />
           <NavigationProperty Name="Pedido" Relationship="Self.FK_Estado_Pedido_Pedido" FromRole="Estado_Pedido" ToRole="Pedido" />
-        </EntityType>
-        <EntityType Name="Pedido_Producto">
-          <Key>
-            <PropertyRef Name="Id_Pedido" />
-            <PropertyRef Name="Id_Producto" />
-            <PropertyRef Name="Cantidad" />
-          </Key>
-          <Property Name="Id_Pedido" Type="Int32" Nullable="false" />
-          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
-          <Property Name="Cantidad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido_Producto" ToRole="Pedido" />
-          <NavigationProperty Name="Producto" Relationship="COMANDFASTModel.FK_Pedido_Producto_Producto" FromRole="Pedido_Producto" ToRole="Producto" />
         </EntityType>
         <EntityType Name="Usuario_Pedido">
           <Key>
@@ -461,6 +467,30 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Pedido_Producto_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Pedido_Producto" Type="Self.Pedido_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Principal>
+            <Dependent Role="Pedido_Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_Tipo_Producto">
+          <End Role="Tipo_Producto" Type="Self.Tipo_Producto" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Producto">
+              <PropertyRef Name="Id_Tipo_Producto" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Id_Tipo_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usuario_Tipo_Usuario">
           <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -490,11 +520,12 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
           <EntitySet Name="Estado" EntityType="Self.Estado" />
           <EntitySet Name="Opiniones" EntityType="Self.Opiniones" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" />
+          <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
           <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" />
           <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <EntitySet Name="Estado_Pedido" EntityType="Self.Estado_Pedido" />
-          <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" />
           <EntitySet Name="Usuario_Pedido" EntityType="Self.Usuario_Pedido" />
           <AssociationSet Name="FK_Estado_Pedido_Estado" Association="Self.FK_Estado_Pedido_Estado">
             <End Role="Estado" EntitySet="Estado" />
@@ -516,6 +547,14 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
             <End Role="Pedido" EntitySet="Pedido" />
             <End Role="Usuario_Pedido" EntitySet="Usuario_Pedido" />
           </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Producto_Producto" Association="Self.FK_Pedido_Producto_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Pedido_Producto" EntitySet="Pedido_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_Tipo_Producto" Association="Self.FK_Producto_Tipo_Producto">
+            <End Role="Tipo_Producto" EntitySet="Tipo_Producto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
           <AssociationSet Name="FK_Usuario_Tipo_Usuario" Association="Self.FK_Usuario_Tipo_Usuario">
             <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
             <End Role="Usuario" EntitySet="Usuario" />
@@ -524,55 +563,7 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Usuario_Pedido" EntitySet="Usuario_Pedido" />
           </AssociationSet>
-          <EntitySet Name="Producto" EntityType="COMANDFASTModel.Producto" />
-          <AssociationSet Name="FK_Pedido_Producto_Producto" Association="COMANDFASTModel.FK_Pedido_Producto_Producto">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="Pedido_Producto" EntitySet="Pedido_Producto" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Producto_Tipo_Producto" Association="COMANDFASTModel.FK_Producto_Tipo_Producto">
-            <End Role="Tipo_Producto" EntitySet="Tipo_Producto" />
-            <End Role="Producto" EntitySet="Producto" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Producto">
-          <Key>
-            <PropertyRef Name="Id_Producto" />
-          </Key>
-          <Property Name="Id_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Precio" Type="Double" Nullable="false" />
-          <Property Name="En_Menu" Type="Boolean" Nullable="false" />
-          <Property Name="Id_Tipo_Producto" Type="Int32" Nullable="false" />
-          <Property Name="Stock" Type="Int32" Nullable="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <Property Name="Titulo_Producto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Pedido_Producto" Relationship="COMANDFASTModel.FK_Pedido_Producto_Producto" FromRole="Producto" ToRole="Pedido_Producto" />
-          <NavigationProperty Name="Tipo_Producto" Relationship="COMANDFASTModel.FK_Producto_Tipo_Producto" FromRole="Producto" ToRole="Tipo_Producto" />
-        </EntityType>
-        <Association Name="FK_Pedido_Producto_Producto">
-          <End Type="COMANDFASTModel.Producto" Role="Producto" Multiplicity="1" />
-          <End Type="COMANDFASTModel.Pedido_Producto" Role="Pedido_Producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Producto">
-              <PropertyRef Name="Id_Producto" />
-            </Principal>
-            <Dependent Role="Pedido_Producto">
-              <PropertyRef Name="Id_Producto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Producto_Tipo_Producto">
-          <End Type="COMANDFASTModel.Tipo_Producto" Role="Tipo_Producto" Multiplicity="1" />
-          <End Type="COMANDFASTModel.Producto" Role="Producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tipo_Producto">
-              <PropertyRef Name="Id_Tipo_Producto" />
-            </Principal>
-            <Dependent Role="Producto">
-              <PropertyRef Name="Id_Tipo_Producto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -617,6 +608,30 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Pedido_Producto">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Pedido_Producto">
+              <MappingFragment StoreEntitySet="Pedido_Producto">
+                <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="COMANDFASTModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="En_Menu" ColumnName="En_Menu" />
+                <ScalarProperty Name="Id_Tipo_Producto" ColumnName="Id_Tipo_Producto" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Titulo_Producto" ColumnName="Titulo_Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Tipo_Producto">
             <EntityTypeMapping TypeName="COMANDFASTModel.Tipo_Producto">
               <MappingFragment StoreEntitySet="Tipo_Producto">
@@ -656,35 +671,12 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Pedido_Producto">
-            <EntityTypeMapping TypeName="COMANDFASTModel.Pedido_Producto">
-              <MappingFragment StoreEntitySet="Pedido_Producto">
-                <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
-                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Usuario_Pedido">
             <EntityTypeMapping TypeName="COMANDFASTModel.Usuario_Pedido">
               <MappingFragment StoreEntitySet="Usuario_Pedido">
                 <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
                 <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
                 <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Producto">
-            <EntityTypeMapping TypeName="COMANDFASTModel.Producto">
-              <MappingFragment StoreEntitySet="Producto">
-                <ScalarProperty Name="Titulo_Producto" ColumnName="Titulo_Producto" />
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
-                <ScalarProperty Name="Id_Tipo_Producto" ColumnName="Id_Tipo_Producto" />
-                <ScalarProperty Name="En_Menu" ColumnName="En_Menu" />
-                <ScalarProperty Name="Precio" ColumnName="Precio" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

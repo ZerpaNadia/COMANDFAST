@@ -41,22 +41,19 @@ warning 6002: The table/view 'COMANDFAST.dbo.Estado_Pedido' does not have a prim
     <Key>
       <PropertyRef Name="Id_Pedido" />
     </Key>
-    <Property Name="Id_Pedido" Type="int" Nullable="false" />
+    <Property Name="Id_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Id_Estado_Pedido" Type="int" Nullable="false" />
     <Property Name="Monto" Type="float" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'COMANDFAST.dbo.Pedido_Producto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Pedido_Producto">
     <Key>
-      <PropertyRef Name="Id_Pedido" />
-      <PropertyRef Name="Id_Producto" />
-      <PropertyRef Name="Cantidad" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id_Pedido" Type="int" Nullable="false" />
     <Property Name="Id_Producto" Type="int" Nullable="false" />
     <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="Producto">
     <Key>
@@ -223,6 +220,7 @@ warning 6002: The table/view 'COMANDFAST.dbo.Usuario_Pedido' does not have a pri
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Opiniones" EntityType="Self.Opiniones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" Schema="dbo" store:Type="Tables" />
@@ -233,13 +231,6 @@ warning 6002: The table/view 'COMANDFAST.dbo.Usuario_Pedido' does not have a pri
 [Estado_Pedido].[Id_Estado] AS [Id_Estado], 
 [Estado_Pedido].[Fecha_Hora] AS [Fecha_Hora]
 FROM [dbo].[Estado_Pedido] AS [Estado_Pedido]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[Pedido_Producto].[Id_Pedido] AS [Id_Pedido], 
-[Pedido_Producto].[Id_Producto] AS [Id_Producto], 
-[Pedido_Producto].[Cantidad] AS [Cantidad]
-FROM [dbo].[Pedido_Producto] AS [Pedido_Producto]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Usuario_Pedido" EntityType="Self.Usuario_Pedido" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

@@ -23,14 +23,26 @@ namespace COMANDFAST.Web
             {
                 acum += p.Cantidad * p.Precio;
             }
-
+            
             lblTotal.Text = "$ " + acum.ToString();
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var p = lblTotal.Text.Split(' ');
+                var productos = ObtenerProductos();
 
-            Response.Redirect("DetallePedido.aspx");
+                DTOPedido pedido = bsPedido.CrearPedidoDTO(Int32.Parse(p[1]), txtDescripcion.Text);
+            
+                bsPedido.CrearPedido(pedido, productos);
+                Response.Redirect("DetallePedido.aspx");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         protected List<DTOProducto> ObtenerProductos()

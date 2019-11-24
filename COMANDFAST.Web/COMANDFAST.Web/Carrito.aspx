@@ -111,7 +111,7 @@
 						        <div class="clearfix"> </div>
 							</div>
                             <div class="menu-text-right">
-						        <h4><asp:Label ID="Label2" runat="server" Text='<%# "$ " + Eval("Precio") %>'></asp:Label></h4>
+						        <h4><asp:Label ID="lblPrecio" runat="server" Text='<%# "$ " + Eval("Precio") %>'></asp:Label></h4>
 					        </div>
 							<div class="clearfix"> </div>
 						</div>	
@@ -133,7 +133,7 @@
 						<br>
 						<h4>Aclaraciones </h4>
 						<br>
-						<textarea cols="7" rows="5" style="margin-left: 6rem; width: 100%"></textarea>
+                        <asp:TextBox ID="txtDescripcion"  cols="7" rows="5" TextMode="MultiLine" runat="server" style="margin-left: 6rem; width: 100%"></asp:TextBox>
 					</div>
 					<div class="menu-text-right">						
 					</div>

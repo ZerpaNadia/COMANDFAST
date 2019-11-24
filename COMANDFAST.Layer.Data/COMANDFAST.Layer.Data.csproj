@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DAOPedido.cs" />
+    <Compile Include="DAO\DAOPedidoProducto.cs" />
     <Compile Include="DAO\DAOProducto.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
     <Compile Include="data.Context.cs">
@@ -66,6 +68,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>data.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\DTOPedido.cs" />
+    <Compile Include="DTO\DTOPedidoProducto.cs" />
     <Compile Include="DTO\DTOProducto.cs" />
     <Compile Include="DTO\DTOUsuario.cs" />
     <Compile Include="Errores.cs">
@@ -107,7 +111,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="data.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>data.Designer.cs</LastGenOutput>

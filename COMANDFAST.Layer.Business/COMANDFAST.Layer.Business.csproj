@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bsPedido.cs" />
     <Compile Include="bsProducto.cs" />
     <Compile Include="bsUsuario.cs" />
+    <Compile Include="Enum\EstadoPedidoEnum.cs" />
     <Compile Include="Enum\TipoProductoEnum.cs" />
     <Compile Include="Enum\TipoUsuarioEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

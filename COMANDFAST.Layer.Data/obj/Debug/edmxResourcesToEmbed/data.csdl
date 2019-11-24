@@ -31,7 +31,7 @@
     <Key>
       <PropertyRef Name="Id_Pedido" />
     </Key>
-    <Property Name="Id_Pedido" Type="Int32" Nullable="false" />
+    <Property Name="Id_Pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Id_Estado_Pedido" Type="Int32" Nullable="false" />
     <Property Name="Monto" Type="Double" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -39,13 +39,39 @@
     <NavigationProperty Name="Pedido_Producto" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido" ToRole="Pedido_Producto" />
     <NavigationProperty Name="Usuario_Pedido" Relationship="Self.FK_Usuario_Pedido_Pedido" FromRole="Pedido" ToRole="Usuario_Pedido" />
   </EntityType>
+  <EntityType Name="Pedido_Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id_Pedido" Type="Int32" Nullable="false" />
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido_Producto" ToRole="Pedido" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_Pedido_Producto_Producto" FromRole="Pedido_Producto" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id_Producto" />
+    </Key>
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Precio" Type="Double" Nullable="false" />
+    <Property Name="En_Menu" Type="Boolean" Nullable="false" />
+    <Property Name="Id_Tipo_Producto" Type="Int32" Nullable="false" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Titulo_Producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Pedido_Producto" Relationship="Self.FK_Pedido_Producto_Producto" FromRole="Producto" ToRole="Pedido_Producto" />
+    <NavigationProperty Name="Tipo_Producto" Relationship="Self.FK_Producto_Tipo_Producto" FromRole="Producto" ToRole="Tipo_Producto" />
+  </EntityType>
   <EntityType Name="Tipo_Producto">
     <Key>
       <PropertyRef Name="Id_Tipo_Producto" />
     </Key>
     <Property Name="Id_Tipo_Producto" Type="Int32" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Producto" Relationship="COMANDFASTModel.FK_Producto_Tipo_Producto" FromRole="Tipo_Producto" ToRole="Producto" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_Tipo_Producto" FromRole="Tipo_Producto" ToRole="Producto" />
   </EntityType>
   <EntityType Name="Tipo_Usuario">
     <Key>
@@ -82,18 +108,6 @@
     <Property Name="Fecha_Hora" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Estado" Relationship="Self.FK_Estado_Pedido_Estado" FromRole="Estado_Pedido" ToRole="Estado" />
     <NavigationProperty Name="Pedido" Relationship="Self.FK_Estado_Pedido_Pedido" FromRole="Estado_Pedido" ToRole="Pedido" />
-  </EntityType>
-  <EntityType Name="Pedido_Producto">
-    <Key>
-      <PropertyRef Name="Id_Pedido" />
-      <PropertyRef Name="Id_Producto" />
-      <PropertyRef Name="Cantidad" />
-    </Key>
-    <Property Name="Id_Pedido" Type="Int32" Nullable="false" />
-    <Property Name="Id_Producto" Type="Int32" Nullable="false" />
-    <Property Name="Cantidad" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido_Producto" ToRole="Pedido" />
-    <NavigationProperty Name="Producto" Relationship="COMANDFASTModel.FK_Pedido_Producto_Producto" FromRole="Pedido_Producto" ToRole="Producto" />
   </EntityType>
   <EntityType Name="Usuario_Pedido">
     <Key>
@@ -167,6 +181,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Pedido_Producto_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Pedido_Producto" Type="Self.Pedido_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id_Producto" />
+      </Principal>
+      <Dependent Role="Pedido_Producto">
+        <PropertyRef Name="Id_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Tipo_Producto">
+    <End Role="Tipo_Producto" Type="Self.Tipo_Producto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Producto">
+        <PropertyRef Name="Id_Tipo_Producto" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Id_Tipo_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Usuario_Tipo_Usuario">
     <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -196,11 +234,12 @@
     <EntitySet Name="Estado" EntityType="Self.Estado" />
     <EntitySet Name="Opiniones" EntityType="Self.Opiniones" />
     <EntitySet Name="Pedido" EntityType="Self.Pedido" />
+    <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" />
     <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" />
     <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" />
     <EntitySet Name="Estado_Pedido" EntityType="Self.Estado_Pedido" />
-    <EntitySet Name="Pedido_Producto" EntityType="Self.Pedido_Producto" />
     <EntitySet Name="Usuario_Pedido" EntityType="Self.Usuario_Pedido" />
     <AssociationSet Name="FK_Estado_Pedido_Estado" Association="Self.FK_Estado_Pedido_Estado">
       <End Role="Estado" EntitySet="Estado" />
@@ -222,6 +261,14 @@
       <End Role="Pedido" EntitySet="Pedido" />
       <End Role="Usuario_Pedido" EntitySet="Usuario_Pedido" />
     </AssociationSet>
+    <AssociationSet Name="FK_Pedido_Producto_Producto" Association="Self.FK_Pedido_Producto_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Pedido_Producto" EntitySet="Pedido_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Tipo_Producto" Association="Self.FK_Producto_Tipo_Producto">
+      <End Role="Tipo_Producto" EntitySet="Tipo_Producto" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
     <AssociationSet Name="FK_Usuario_Tipo_Usuario" Association="Self.FK_Usuario_Tipo_Usuario">
       <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
       <End Role="Usuario" EntitySet="Usuario" />
@@ -230,53 +277,5 @@
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Usuario_Pedido" EntitySet="Usuario_Pedido" />
     </AssociationSet>
-    <EntitySet Name="Producto" EntityType="COMANDFASTModel.Producto" />
-    <AssociationSet Name="FK_Pedido_Producto_Producto" Association="COMANDFASTModel.FK_Pedido_Producto_Producto">
-      <End Role="Producto" EntitySet="Producto" />
-      <End Role="Pedido_Producto" EntitySet="Pedido_Producto" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Producto_Tipo_Producto" Association="COMANDFASTModel.FK_Producto_Tipo_Producto">
-      <End Role="Tipo_Producto" EntitySet="Tipo_Producto" />
-      <End Role="Producto" EntitySet="Producto" />
-    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Producto">
-    <Key>
-      <PropertyRef Name="Id_Producto" />
-    </Key>
-    <Property Name="Id_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Precio" Type="Double" Nullable="false" />
-    <Property Name="En_Menu" Type="Boolean" Nullable="false" />
-    <Property Name="Id_Tipo_Producto" Type="Int32" Nullable="false" />
-    <Property Name="Stock" Type="Int32" Nullable="false" />
-    <Property Name="Activo" Type="Boolean" Nullable="false" />
-    <Property Name="Titulo_Producto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Pedido_Producto" Relationship="COMANDFASTModel.FK_Pedido_Producto_Producto" FromRole="Producto" ToRole="Pedido_Producto" />
-    <NavigationProperty Name="Tipo_Producto" Relationship="COMANDFASTModel.FK_Producto_Tipo_Producto" FromRole="Producto" ToRole="Tipo_Producto" />
-  </EntityType>
-  <Association Name="FK_Pedido_Producto_Producto">
-    <End Type="COMANDFASTModel.Producto" Role="Producto" Multiplicity="1" />
-    <End Type="COMANDFASTModel.Pedido_Producto" Role="Pedido_Producto" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="Id_Producto" />
-      </Principal>
-      <Dependent Role="Pedido_Producto">
-        <PropertyRef Name="Id_Producto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Producto_Tipo_Producto">
-    <End Type="COMANDFASTModel.Tipo_Producto" Role="Tipo_Producto" Multiplicity="1" />
-    <End Type="COMANDFASTModel.Producto" Role="Producto" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Tipo_Producto">
-        <PropertyRef Name="Id_Tipo_Producto" />
-      </Principal>
-      <Dependent Role="Producto">
-        <PropertyRef Name="Id_Tipo_Producto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

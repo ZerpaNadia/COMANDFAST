@@ -39,6 +39,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Pedido_Producto">
+      <EntityTypeMapping TypeName="COMANDFASTModel.Pedido_Producto">
+        <MappingFragment StoreEntitySet="Pedido_Producto">
+          <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
+          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="COMANDFASTModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="En_Menu" ColumnName="En_Menu" />
+          <ScalarProperty Name="Id_Tipo_Producto" ColumnName="Id_Tipo_Producto" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Titulo_Producto" ColumnName="Titulo_Producto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Tipo_Producto">
       <EntityTypeMapping TypeName="COMANDFASTModel.Tipo_Producto">
         <MappingFragment StoreEntitySet="Tipo_Producto">
@@ -78,35 +102,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Pedido_Producto">
-      <EntityTypeMapping TypeName="COMANDFASTModel.Pedido_Producto">
-        <MappingFragment StoreEntitySet="Pedido_Producto">
-          <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
-          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
-          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Usuario_Pedido">
       <EntityTypeMapping TypeName="COMANDFASTModel.Usuario_Pedido">
         <MappingFragment StoreEntitySet="Usuario_Pedido">
           <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
           <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
           <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Producto">
-      <EntityTypeMapping TypeName="COMANDFASTModel.Producto">
-        <MappingFragment StoreEntitySet="Producto">
-          <ScalarProperty Name="Titulo_Producto" ColumnName="Titulo_Producto" />
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
-          <ScalarProperty Name="Stock" ColumnName="Stock" />
-          <ScalarProperty Name="Id_Tipo_Producto" ColumnName="Id_Tipo_Producto" />
-          <ScalarProperty Name="En_Menu" ColumnName="En_Menu" />
-          <ScalarProperty Name="Precio" ColumnName="Precio" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
