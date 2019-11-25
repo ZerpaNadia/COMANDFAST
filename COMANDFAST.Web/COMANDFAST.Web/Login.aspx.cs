@@ -33,8 +33,7 @@ namespace COMANDFAST.Web
         private void cmdLogin_ServerClick(object sender, System.EventArgs e)
         {
             if (bsUsuario.VerificarUsuarioLogin(txtUsuario.Text, txtPassword.Text))
-                FormsAuthentication.RedirectFromLoginPage(txtUsuario.Text,
-                chkPersistCookie.Checked);
+                FormsAuthentication.RedirectFromLoginPage(txtUsuario.Text, chkPersistCookie.Checked);
             else
                 //No hago nada, solo muestro mensaje.
                 lblMsg.Text = "Usuario o Contraseña incorrecta";

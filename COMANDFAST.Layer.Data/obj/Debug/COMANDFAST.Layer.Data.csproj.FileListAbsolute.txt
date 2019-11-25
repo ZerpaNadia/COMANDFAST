@@ -19,3 +19,4 @@ C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\bin\Debug\EntityFramewor
 C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\bin\Debug\EntityFramework.xml
 C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.dll
 C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.pdb
+C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\obj\Debug\COMANDFAST.Layer.Data.csprojResolveAssemblyReference.cache

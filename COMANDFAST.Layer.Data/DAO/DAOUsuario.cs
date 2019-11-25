@@ -102,7 +102,6 @@ namespace COMANDFAST.Layer.Data.DAO
 
             try
             {
-
                 // Busco el usuario en la base.
                 //Query para buscar los datos que se ingresaron en la bd.
                 var query = from usu in entities.Usuario

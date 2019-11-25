@@ -166,7 +166,6 @@
     <Content Include="Assets\js\simplyCountdown.js" />
     <Content Include="Carrito.aspx" />
     <Content Include="Cocina.aspx" />
-    <Content Include="Detalle-pedido.aspx" />
     <Content Include="DetallePedido.aspx" />
     <Content Include="Ejemplo.aspx" />
     <Content Include="Login.aspx" />
@@ -217,13 +216,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Detalle-pedido.aspx.cs">
-      <DependentUpon>Detalle-pedido.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Detalle-pedido.aspx.designer.cs">
-      <DependentUpon>Detalle-pedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetallePedido.aspx.cs">
       <DependentUpon>DetallePedido.aspx</DependentUpon>

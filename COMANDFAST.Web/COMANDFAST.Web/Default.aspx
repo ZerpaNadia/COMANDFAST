@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-md-3 wthree-agile-grid">
 					<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
-						<a href="Detalle-pedido.aspx" class="hi-icon icon3"></a>
+						<a href="DetallePedido.aspx" class="hi-icon icon3"></a>
 					</div>
 					<h4>Pedidos</h4>
 				</div>

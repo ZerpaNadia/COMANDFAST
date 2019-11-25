@@ -37,5 +37,17 @@ namespace COMANDFAST.Layer.Data.DAO
                             select p).OrderByDescending(X => X.Id_Pedido).FirstOrDefault().Id_Pedido;
             return idUltimo;
         }
+
+        public static DTOPedido ObtenerPedidoPorUsuario()
+        {
+            var pedido = (from p in entities.Pedido
+                            where p.Id_Usuario == 4 //aca va el Id del usuario que se logueo
+                            select p).OrderByDescending(X => X.Id_Pedido).FirstOrDefault();
+
+
+
+
+            return new DTOPedido();
+        }
     }
 }

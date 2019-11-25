@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="COMANDFASTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="COMANDFASTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Errores">
           <Key>
             <PropertyRef Name="Id_Error" />
@@ -50,6 +50,12 @@ warning 6002: The table/view 'COMANDFAST.dbo.Estado_Pedido' does not have a prim
           <Property Name="Id_Estado_Pedido" Type="int" Nullable="false" />
           <Property Name="Monto" Type="float" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Usuario" Type="int" />
+          <Property Name="Fecha_Realizado" Type="datetime" />
+          <Property Name="Fecha_Abonado" Type="datetime" />
+          <Property Name="Fecha_Preparacion" Type="datetime" />
+          <Property Name="Fecha_Listo" Type="datetime" />
+          <Property Name="Fecha_Entregado" Type="datetime" />
         </EntityType>
         <EntityType Name="Pedido_Producto">
           <Key>
@@ -281,8 +287,7 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="COMANDFASTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -324,6 +329,12 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
           <NavigationProperty Name="Estado_Pedido" Relationship="Self.FK_Estado_Pedido_Pedido" FromRole="Pedido" ToRole="Estado_Pedido" />
           <NavigationProperty Name="Pedido_Producto" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido" ToRole="Pedido_Producto" />
           <NavigationProperty Name="Usuario_Pedido" Relationship="Self.FK_Usuario_Pedido_Pedido" FromRole="Pedido" ToRole="Usuario_Pedido" />
+          <Property Name="Id_Usuario" Type="Int32" />
+          <Property Name="Fecha_Realizado" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Abonado" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Preparacion" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Listo" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Entregado" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Pedido_Producto">
           <Key>
@@ -601,6 +612,12 @@ FROM [dbo].[Usuario_Pedido] AS [Usuario_Pedido]</DefiningQuery>
           <EntitySetMapping Name="Pedido">
             <EntityTypeMapping TypeName="COMANDFASTModel.Pedido">
               <MappingFragment StoreEntitySet="Pedido">
+                <ScalarProperty Name="Fecha_Entregado" ColumnName="Fecha_Entregado" />
+                <ScalarProperty Name="Fecha_Listo" ColumnName="Fecha_Listo" />
+                <ScalarProperty Name="Fecha_Preparacion" ColumnName="Fecha_Preparacion" />
+                <ScalarProperty Name="Fecha_Abonado" ColumnName="Fecha_Abonado" />
+                <ScalarProperty Name="Fecha_Realizado" ColumnName="Fecha_Realizado" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
                 <ScalarProperty Name="Id_Pedido" ColumnName="Id_Pedido" />
                 <ScalarProperty Name="Id_Estado_Pedido" ColumnName="Id_Estado_Pedido" />
                 <ScalarProperty Name="Monto" ColumnName="Monto" />

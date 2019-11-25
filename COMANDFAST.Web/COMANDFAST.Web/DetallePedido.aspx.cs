@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using COMANDFAST.Layer.Business;
+using COMANDFAST.Layer.Data.DTO;
 
 namespace COMANDFAST.Web
 {
@@ -11,7 +13,7 @@ namespace COMANDFAST.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var pedidoProducto = "";
         }
     }
 }
