@@ -83,9 +83,9 @@
                     <ItemTemplate>
                         <div class="menu-text">
 							<div class="menu-text-left">
-								<div class="rep-w3l-img">
+<%--								<div class="rep-w3l-img">
 									<img src="Assets/images/f1.jpg" alt=" " class="img-responsive"/>
-								</div>
+								</div>--%>
                                 <div class="rep-w3l-text book-form">
                                     <asp:HiddenField ID="Id" runat="server" Value='<%# Bind("IdProducto") %>'></asp:HiddenField>
 							        <h4><asp:Label ID="Label1" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></h4>
@@ -117,42 +117,21 @@
     	<h1 class="project-name">ESTADO</h1>
         <div class="col-md-10 col-md-offset-1">
 		<div id="timeline">
-			<div class="timeline-item">
-				<div class="timeline-icon">
-				</div>
-				<div class="timeline-content">
-					<h2>INFORMADO</h2>
-					<p>
-						Fecha: 30/09/2019
-						Hora : 21:30
-					</p>
-				</div>
-			</div>
-
-			<div class="timeline-item">
-				<div class="timeline-icon">
-				</div>
-				<div class="timeline-content right">
-					<h2>CONFIRMADO</h2>
-					<p>
-						Fecha: 30/09/2019
-						Hora : 21:32
-					</p>
-				</div>
-			</div>
-
-			<div class="timeline-item">
-				<div class="timeline-icon">
-					<i class='fas fa-hamburger'></i>
-				</div>
-				<div class="timeline-content">
-					<h2>EN PROCESO</h2>
-					<p>
-						Fecha: 30/09/2019
-						Hora : 21:35
-					</p>
-				</div>
-			</div>
+            <asp:Repeater ID="repEstado" runat="server">
+                <ItemTemplate>
+                    <div class="timeline-item">
+				        <div class="timeline-icon">
+                            <i class='fas fa-hamburger'></i>
+				        </div>
+				        <div class="timeline-content">
+					        <h2><%# Eval("EstadoNombre") %></h2>
+					        <p>
+						        Fecha: <%# Eval("Fecha") %></h2>
+					        </p>
+				        </div>
+			        </div>
+                </ItemTemplate>
+            </asp:Repeater>
 		</div>
         </div>
 	</div>

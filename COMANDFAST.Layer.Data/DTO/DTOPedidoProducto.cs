@@ -22,13 +22,9 @@ namespace COMANDFAST.Layer.Data.DTO
 
         #region properties producto
 
-        //public int Id { get; set; }
+        public string TituloProducto { get; set; }
 
-        //public int IdPedido { get; set; }
-
-        //public int IdProducto { get; set; }
-
-        //public int Cantidad { get; set; }
+        public double Precio { get; set; }        
 
         #endregion
 

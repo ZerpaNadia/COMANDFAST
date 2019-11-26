@@ -31,5 +31,37 @@ namespace COMANDFAST.Layer.Data.DAO
                 throw;
             }
         }
+
+        public static List<DTOEstadoPedido> ObtenerEstadoPedido(int idPedido)
+        {
+            try
+            {
+                var estPed = (from ep in entities.Estado_Pedido join
+                                        e in entities.Estado on ep.Id_Estado equals e.Id_Estado
+                                        where ep.Id_Pedido == idPedido
+                                        select new { ep, e }).ToList();
+
+                List<DTOEstadoPedido> estadoPedido = new List<DTOEstadoPedido>();
+
+                foreach (var i in estPed)
+                {
+                    DTOEstadoPedido ep = new DTOEstadoPedido();
+
+                    ep.Id = i.ep.Id;
+                    ep.IdEstado = i.ep.Id_Estado;
+                    ep.IdPedido = i.ep.Id_Pedido;
+                    ep.EstadoNombre = i.e.Descripcion;
+                    ep.Fecha = i.ep.Fecha_Hora;
+
+                    estadoPedido.Add(ep);
+                }
+
+                return estadoPedido;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -15,5 +15,7 @@ namespace COMANDFAST.Layer.Data.DTO
         public int IdEstado { get; set; }
 
         public DateTime Fecha { get; set; }
+
+        public string EstadoNombre { get; set; }
     }
 }

@@ -57,30 +57,6 @@ namespace COMANDFAST.Layer.Data.DAO
             }
         }
 
-        //public static string VerificarProducto(DTOProducto productoDTO)
-        //{
-        //    try
-        //    {
-        //        var auxStock = productoDTO.Stock;
-        //        var auxPrecio = productoDTO.Precio;
-
-        //        if ()
-        //        {
-        //            return "* El Email ingresado ya se encuentra registrado. ";
-        //        }
-        //        else if (auxUsuario.Count() > 0)
-        //        {
-        //            return "* El Usuario ingresado ya se encuentra registrado. ";
-        //        }
-
-        //        return "";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw;
-        //    }
-        //}
-
         public static List<DTOProducto> ObtenerProductos()
         {
             try

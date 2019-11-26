@@ -17,7 +17,18 @@ namespace COMANDFAST.Web
 
             var pedido = bsPedido.ObtenerPedidoPorUsuario(usuario.IdUsuario);
 
+            var pedidoProducto = bsPedido.ObtenerPedidoProducto(pedido.IdPedido);
 
+            repProductos.DataSource = pedidoProducto;
+            repProductos.DataBind();
+
+            lblTotal.Text = "$ " + pedido.Monto.ToString();
+
+
+            var estados = bsPedido.ObtenerEstadoPedido(pedido.IdPedido);
+
+            repEstado.DataSource = estados;
+            repEstado.DataBind();
         }
     }
 }
