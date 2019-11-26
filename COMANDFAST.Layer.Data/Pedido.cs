@@ -26,11 +26,6 @@ namespace COMANDFAST.Layer.Data
         public double Monto { get; set; }
         public string Descripcion { get; set; }
         public Nullable<int> Id_Usuario { get; set; }
-        public Nullable<System.DateTime> Fecha_Realizado { get; set; }
-        public Nullable<System.DateTime> Fecha_Abonado { get; set; }
-        public Nullable<System.DateTime> Fecha_Preparacion { get; set; }
-        public Nullable<System.DateTime> Fecha_Listo { get; set; }
-        public Nullable<System.DateTime> Fecha_Entregado { get; set; }
     
         public virtual ICollection<Estado_Pedido> Estado_Pedido { get; set; }
         public virtual ICollection<Pedido_Producto> Pedido_Producto { get; set; }

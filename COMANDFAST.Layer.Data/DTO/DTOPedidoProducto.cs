@@ -8,7 +8,7 @@ namespace COMANDFAST.Layer.Data.DTO
 {
     public class DTOPedidoProducto
     {
-        #region properties
+        #region properties pedido
 
         public int Id { get; set; }
 
@@ -17,6 +17,18 @@ namespace COMANDFAST.Layer.Data.DTO
         public int IdProducto { get; set; }
 
         public int Cantidad { get; set; }
+
+        #endregion
+
+        #region properties producto
+
+        //public int Id { get; set; }
+
+        //public int IdPedido { get; set; }
+
+        //public int IdProducto { get; set; }
+
+        //public int Cantidad { get; set; }
 
         #endregion
 

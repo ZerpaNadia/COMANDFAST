@@ -17,13 +17,14 @@ namespace COMANDFAST.Layer.Business
             {
                 DAOPedido.CrearPedido(pedidoDTO);
                 DAOPedidoProducto.CrearPedidoProducto(productosDTO);
+                DAOEstadoPedido.CrearEstadoPedido((int)EstadoPedidoEnum.Realizado);
             }
             catch (Exception ex)
             {
             }
         }
 
-        public static DTOPedido CrearPedidoDTO(int monto, string descripcion)
+        public static DTOPedido CrearPedidoDTO(int monto, string descripcion, int idUsuario)
         {
             try
             {
@@ -32,6 +33,7 @@ namespace COMANDFAST.Layer.Business
                 pedido.IdEstadoPedido = (int)EstadoPedidoEnum.Realizado;
                 pedido.Monto = monto;
                 pedido.Descripcion = descripcion;
+                pedido.IdUsuario = idUsuario;
 
                 return pedido;
             }
@@ -39,6 +41,11 @@ namespace COMANDFAST.Layer.Business
             {
                 throw;
             }
+        }
+
+        public static DTOPedido ObtenerPedidoPorUsuario(int idUsuario)
+        {
+            return DAOPedido.ObtenerPedidoPorUsuario(idUsuario);
         }
     }
 }

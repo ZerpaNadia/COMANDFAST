@@ -18,6 +18,8 @@ namespace COMANDFAST.Layer.Data.DTO
 
         public string Descripcion { get; set; }
 
+        public int IdUsuario { get; set; }
+
         #endregion
 
         #region Constructores

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DAOEstadoPedido.cs" />
     <Compile Include="DAO\DAOPedido.cs" />
     <Compile Include="DAO\DAOPedidoProducto.cs" />
     <Compile Include="DAO\DAOProducto.cs" />
@@ -68,6 +69,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>data.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DTO\DTOEstadoPedido.cs" />
     <Compile Include="DTO\DTOPedido.cs" />
     <Compile Include="DTO\DTOPedidoProducto.cs" />
     <Compile Include="DTO\DTOProducto.cs" />

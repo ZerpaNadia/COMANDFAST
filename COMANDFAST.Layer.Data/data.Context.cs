@@ -27,6 +27,7 @@ namespace COMANDFAST.Layer.Data
     
         public DbSet<Errores> Errores { get; set; }
         public DbSet<Estado> Estado { get; set; }
+        public DbSet<Estado_Pedido> Estado_Pedido { get; set; }
         public DbSet<Opiniones> Opiniones { get; set; }
         public DbSet<Pedido> Pedido { get; set; }
         public DbSet<Pedido_Producto> Pedido_Producto { get; set; }
@@ -34,7 +35,6 @@ namespace COMANDFAST.Layer.Data
         public DbSet<Tipo_Producto> Tipo_Producto { get; set; }
         public DbSet<Tipo_Usuario> Tipo_Usuario { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<Estado_Pedido> Estado_Pedido { get; set; }
         public DbSet<Usuario_Pedido> Usuario_Pedido { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace COMANDFAST.Layer.Data
         public int Id_Pedido { get; set; }
         public int Id_Estado { get; set; }
         public System.DateTime Fecha_Hora { get; set; }
+        public int Id { get; set; }
     
         public virtual Estado Estado { get; set; }
         public virtual Pedido Pedido { get; set; }

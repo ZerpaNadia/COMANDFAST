@@ -19,7 +19,8 @@ namespace COMANDFAST.Layer.Data.DAO
                 {
                     Id_Estado_Pedido = pedidoDTO.IdEstadoPedido,
                     Monto = pedidoDTO.Monto,
-                    Descripcion = pedidoDTO.Descripcion
+                    Descripcion = pedidoDTO.Descripcion,
+                    Id_Usuario = pedidoDTO.IdUsuario
                 };
 
                 entities.Pedido.Add(pedido);
@@ -38,16 +39,19 @@ namespace COMANDFAST.Layer.Data.DAO
             return idUltimo;
         }
 
-        public static DTOPedido ObtenerPedidoPorUsuario()
+        public static DTOPedido ObtenerPedidoPorUsuario(int idUsuario)
         {
-            var pedido = (from p in entities.Pedido
-                            where p.Id_Usuario == 4 //aca va el Id del usuario que se logueo
+            DTOPedido pedido = new DTOPedido();
+
+            var pedidoBd = (from p in entities.Pedido
+                            where p.Id_Usuario == idUsuario 
                             select p).OrderByDescending(X => X.Id_Pedido).FirstOrDefault();
 
+            pedido.IdPedido = pedidoBd.Id_Pedido;
+            pedido.IdEstadoPedido = pedidoBd.Id_Estado_Pedido;
+            pedido.Monto = pedidoBd.Monto;
 
-
-
-            return new DTOPedido();
+            return pedido;
         }
     }
 }

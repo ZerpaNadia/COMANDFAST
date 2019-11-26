@@ -31,10 +31,11 @@ namespace COMANDFAST.Web
         {
             try
             {
+                var usuario = ((DTOUsuario)Session["Usuario"]);
                 var p = lblTotal.Text.Split(' ');
                 var productos = ObtenerProductos();
 
-                DTOPedido pedido = bsPedido.CrearPedidoDTO(Int32.Parse(p[1]), txtDescripcion.Text);
+                DTOPedido pedido = bsPedido.CrearPedidoDTO(Int32.Parse(p[1]), txtDescripcion.Text, usuario.IdUsuario);
             
                 bsPedido.CrearPedido(pedido, productos);
                 Response.Redirect("DetallePedido.aspx");

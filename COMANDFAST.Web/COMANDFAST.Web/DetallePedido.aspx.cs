@@ -13,7 +13,11 @@ namespace COMANDFAST.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var pedidoProducto = "";
+            var usuario = ((DTOUsuario)Session["Usuario"]);
+
+            var pedido = bsPedido.ObtenerPedidoPorUsuario(usuario.IdUsuario);
+
+
         }
     }
 }

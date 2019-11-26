@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0252e75d9db544508c42a0b81cc4d039" Name="Diagram1">
+      <Diagram DiagramId="8b515d76d5c6414fbe2eb7e5ada5715a" Name="Diagram1">
         <EntityTypeShape EntityType="COMANDFASTModel.Errores" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="COMANDFASTModel.Estado" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Estado" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Estado_Pedido" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="COMANDFASTModel.Opiniones" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="COMANDFASTModel.Pedido" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="COMANDFASTModel.Pedido_Producto" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="COMANDFASTModel.Producto" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="COMANDFASTModel.Tipo_Producto" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Pedido" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Pedido_Producto" Width="1.5" PointX="10.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Producto" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMANDFASTModel.Tipo_Producto" Width="1.5" PointX="5.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="COMANDFASTModel.Tipo_Usuario" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="COMANDFASTModel.Usuario" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="COMANDFASTModel.Estado_Pedido" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="COMANDFASTModel.Usuario_Pedido" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="COMANDFASTModel.FK_Estado_Pedido_Estado" ManuallyRouted="false" />
-        <AssociationConnector Association="COMANDFASTModel.FK_Opiniones_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="COMANDFASTModel.FK_Estado_Pedido_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="COMANDFASTModel.FK_Opiniones_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="COMANDFASTModel.FK_Pedido_Producto_Pedido" ManuallyRouted="false" />
         <AssociationConnector Association="COMANDFASTModel.FK_Usuario_Pedido_Pedido" ManuallyRouted="false" />
         <AssociationConnector Association="COMANDFASTModel.FK_Pedido_Producto_Producto" ManuallyRouted="false" />
