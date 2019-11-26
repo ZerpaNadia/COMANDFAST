@@ -25,6 +25,11 @@ namespace COMANDFAST.Web
                     txtRegistro.Text = "* El Registro fue realizado con exito.";
                     txtRegistro.Visible = true;
                 }
+                if (esRegistro == "false")
+                {
+                    txtRegistro.Text = "* La sesion ha expirado.";
+                    txtRegistro.Visible = true;
+                }
             }
 			
             this.cmdLogin.ServerClick += new System.EventHandler(this.cmdLogin_ServerClick);
@@ -33,7 +38,18 @@ namespace COMANDFAST.Web
         private void cmdLogin_ServerClick(object sender, System.EventArgs e)
         {
             if (bsUsuario.VerificarUsuarioLogin(txtUsuario.Text, txtPassword.Text))
-                FormsAuthentication.RedirectFromLoginPage(txtUsuario.Text, chkPersistCookie.Checked);
+            {
+                //FormsAuthentication.RedirectFromLoginPage(txtUsuario.Text, chkPersistCookie.Checked);
+                var usuario = ((DTOUsuario)Session["Usuario"]);
+
+                if (usuario != null)
+                {
+                    if (usuario.TipoUsuario == (int)TipoUsuarioEnum.Cliente)
+                        Response.Redirect("Default.aspx");
+                    if (usuario.TipoUsuario == (int)TipoUsuarioEnum.Socio)
+                        Response.Redirect("Producto.aspx");
+                }
+            }
             else
                 //No hago nada, solo muestro mensaje.
                 lblMsg.Text = "Usuario o Contraseña incorrecta";

@@ -45,6 +45,12 @@ warning 6002: The table/view 'COMANDFAST.dbo.Estado_Pedido' does not have a prim
     <Property Name="Id_Estado_Pedido" Type="int" Nullable="false" />
     <Property Name="Monto" Type="float" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id_Usuario" Type="int" />
+    <Property Name="Fecha_Realizado" Type="datetime" />
+    <Property Name="Fecha_Abonado" Type="datetime" />
+    <Property Name="Fecha_Preparacion" Type="datetime" />
+    <Property Name="Fecha_Listo" Type="datetime" />
+    <Property Name="Fecha_Entregado" Type="datetime" />
   </EntityType>
   <EntityType Name="Pedido_Producto">
     <Key>

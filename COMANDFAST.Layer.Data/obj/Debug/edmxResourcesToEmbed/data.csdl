@@ -38,6 +38,12 @@
     <NavigationProperty Name="Estado_Pedido" Relationship="Self.FK_Estado_Pedido_Pedido" FromRole="Pedido" ToRole="Estado_Pedido" />
     <NavigationProperty Name="Pedido_Producto" Relationship="Self.FK_Pedido_Producto_Pedido" FromRole="Pedido" ToRole="Pedido_Producto" />
     <NavigationProperty Name="Usuario_Pedido" Relationship="Self.FK_Usuario_Pedido_Pedido" FromRole="Pedido" ToRole="Usuario_Pedido" />
+    <Property Name="Id_Usuario" Type="Int32" />
+    <Property Name="Fecha_Realizado" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_Abonado" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_Preparacion" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_Listo" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_Entregado" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Pedido_Producto">
     <Key>

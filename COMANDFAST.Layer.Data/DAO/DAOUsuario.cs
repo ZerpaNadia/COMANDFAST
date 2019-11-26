@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.Validation;
 using COMANDFAST.Layer.Data.DTO;
+using System.Web;
 
 namespace COMANDFAST.Layer.Data.DAO
 {
@@ -87,6 +88,7 @@ namespace COMANDFAST.Layer.Data.DAO
         public static bool VerificarUsuarioLogin(string userName, string passWord)
         {
             string lookupPassword = null;
+            DTOUsuario usuario = new DTOUsuario();
 
             // Chequeo el usuario ingresado. Que no sea vacio ni mayor a 50 su largo.
             if ((null == userName) || (0 == userName.Length) || (userName.Length > 50))
@@ -107,10 +109,15 @@ namespace COMANDFAST.Layer.Data.DAO
                 var query = from usu in entities.Usuario
                             where (usu.Login_Usuario == userName || usu.Email == userName)
                         && usu.Pass == passWord
-                            select usu.Pass;
+                            select usu;
 
                 var usuarioCOMANDFAST = query.FirstOrDefault();
-                lookupPassword = usuarioCOMANDFAST.ToString();
+                lookupPassword = usuarioCOMANDFAST.Pass.ToString();                
+
+                usuario.IdUsuario = usuarioCOMANDFAST.Id_Usuario;
+                usuario.Usuario = usuarioCOMANDFAST.Login_Usuario;
+                usuario.Email = usuarioCOMANDFAST.Email;
+                usuario.TipoUsuario = usuarioCOMANDFAST.Id_Tipo_Usuario;
 
             }
             catch (Exception ex)
@@ -126,7 +133,10 @@ namespace COMANDFAST.Layer.Data.DAO
 
             // Comparo el password encontrado con el ingresado con case sensitive
             if (0 == string.Compare(lookupPassword, passWord, false))
-                return true;
+            {
+                HttpContext.Current.Session["Usuario"] = usuario;
+                return true;                
+            }
             else
                 return false;
         }

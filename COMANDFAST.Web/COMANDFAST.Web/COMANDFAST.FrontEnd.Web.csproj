@@ -191,6 +191,7 @@
     <Content Include="Global.asax" />
     <Content Include="Menu-externo.aspx" />
     <Content Include="Menu.aspx" />
+    <Content Include="Producto.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Reserva.aspx" />
     <Content Include="Web.config" />
@@ -268,6 +269,13 @@
     </Compile>
     <Compile Include="Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Producto.aspx.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Producto.aspx.designer.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
