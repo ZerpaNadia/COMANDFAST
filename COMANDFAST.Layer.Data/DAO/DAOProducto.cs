@@ -57,6 +57,51 @@ namespace COMANDFAST.Layer.Data.DAO
             }
         }
 
+        public static void EliminarProducto(DTOProducto productoDTO)
+        {
+            try
+            {
+                Producto producto = new Producto()
+                {
+                    Descripcion = productoDTO.DescProducto,
+                    Titulo_Producto = productoDTO.TituloProducto,
+                    Precio = productoDTO.Precio,
+                    En_Menu = productoDTO.EnMenu,
+                    Id_Tipo_Producto = productoDTO.IdTipoProducto,
+                    Stock = productoDTO.Stock,
+                    Activo = productoDTO.Activo,
+
+                };
+
+                entities.Producto.Add(producto);
+                entities.SaveChanges();
+
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException ex)
+            {
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException ex) //DbContext
+            {
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
         public static List<DTOProducto> ObtenerProductos()
         {
             try
