@@ -42,7 +42,7 @@ namespace COMANDFAST.Layer.Data.DAO
                 var pedidoProductos = (from ped in entities.Pedido_Producto
                                        join prod in entities.Producto on ped.Id_Producto equals prod.Id_Producto
                                        where ped.Id_Pedido == IdPedido
-                                       select new { ped, prod }).ToList();
+                                       select new { ped, prod }).OrderBy(X => X.prod.Id_Producto).ToList();
 
                 List<DTOPedidoProducto> ListaPp = new List<DTOPedidoProducto>();
 

@@ -67,7 +67,7 @@
 
         .menu-text-right{
 	        float:right;
-	        width: 25%;
+	        width: 30%;
         }
 	</style>
 </asp:Content>

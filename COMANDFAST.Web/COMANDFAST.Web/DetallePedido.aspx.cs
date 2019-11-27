@@ -15,20 +15,28 @@ namespace COMANDFAST.Web
         {
             var usuario = ((DTOUsuario)Session["Usuario"]);
 
-            var pedido = bsPedido.ObtenerPedidoPorUsuario(usuario.IdUsuario);
+            if (usuario != null)
+            {
+                var pedido = bsPedido.ObtenerPedidoPorUsuario(usuario.IdUsuario);
 
-            var pedidoProducto = bsPedido.ObtenerPedidoProducto(pedido.IdPedido);
+                var pedidoProducto = bsPedido.ObtenerPedidoProducto(pedido.IdPedido);
 
-            repProductos.DataSource = pedidoProducto;
-            repProductos.DataBind();
+                repProductos.DataSource = pedidoProducto;
+                repProductos.DataBind();
 
-            lblTotal.Text = "$ " + pedido.Monto.ToString();
-            lblIdPedido.Text = pedido.IdPedido.ToString();
+                lblTotal.Text = "$ " + pedido.Monto.ToString();
+                lblIdPedido.Text = pedido.IdPedido.ToString();
 
-            var estados = bsPedido.ObtenerEstadoPedido(pedido.IdPedido);
+                var estados = bsPedido.ObtenerEstadoPedido(pedido.IdPedido);
 
-            repEstado.DataSource = estados;
-            repEstado.DataBind();
+                repEstado.DataSource = estados;
+                repEstado.DataBind();
+            }
+            else
+            {
+                Response.Redirect("Login.aspx?reg=false");
+            }
+            
         }
     }
 }

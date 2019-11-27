@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Cocina.aspx.cs" Inherits="COMANDFAST.Web.Cocina" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Cocina.aspx.cs"  Inherits="COMANDFAST.Web.Cocina" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     	<script type="text/javascript">
 		function cambiarEstado (id, avance) {
@@ -23,6 +23,18 @@
 
 			}
 
+		}
+
+		function OcultaBotones(indice, estado) {
+		    if (estado == "A") {
+		        $('#ContentPlaceHolder1_repPedidos_btnAcetar_' + indice).hide();
+		        $('#ContentPlaceHolder1_repPedidos_btnPreparado_' + indice).show();
+		    }
+		    if (estado == "P") {
+		        $('#ContentPlaceHolder1_repPedidos_btnAcetar_' + indice).hide();
+		        $('#ContentPlaceHolder1_repPedidos_btnPreparado_' + indice).hide();
+		        $('#ContentPlaceHolder1_repPedidos_lblListo_' + indice).hide();		        
+		    }
 		}
 	</script>
 	<!-- //web-fonts -->
@@ -115,54 +127,28 @@
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr>
-					      <td>Martin</td>
-					      <td>AA105</td>
-					      <td>
-						      <ul>
-						      	<li>Menu Principal 1</li>
-						      	<li>Acompañamiento 1</li>
-						      	<li>Bebida Cola</li>
-						      </ul>
-					      </td>
-					      <td>
-					      	<button  class="boton-principal" id="boton-1a" onclick="cambiarEstado('a','1a')">Aceptado</button>	
-					      	<button  class="boton-principal boton-segundo" id="boton-1b" style="display: none" onclick="cambiarEstado('a','1b')">Preparado</button>	
-					      	<button  class="boton-principal boton-tercero" id="boton-1c" style="display: none"  onclick="cambiarEstado('a','1c')">Listo</button>	
-					      	</td>
-					    </tr>
-					    <tr>
-					      <td>Martin</td>
-					      <td>AA105</td>
-					      <td>
-						      <ul>
-						      	<li>Menu Principal 1</li>
-						      	<li>Acompañamiento 1</li>
-						      	<li>Bebida Cola</li>
-						      </ul>
-					      </td>
-					      <td>
-					      	<button  class="boton-principal" id="boton-2a" onclick="cambiarEstado('b','2a')">Aceptado</button>	
-					      	<button  class="boton-principal boton-segundo" id="boton-2b" style="display: none" onclick="cambiarEstado('b','2b')">Preparado</button>	
-					      	<button  class="boton-principal boton-tercero" id="boton-2c" style="display: none"  onclick="cambiarEstado('b','2c')">Listo</button>
-					      </td>
-					    </tr>
-					    <tr>
-					      <td>Martin</td>
-					      <td>AA105</td>
-					      <td>
-						      <ul>
-						      	<li>Menu Principal 1</li>
-						      	<li>Acompañamiento 1</li>
-						      	<li>Bebida Cola</li>
-						      </ul>
-					      </td>
-					      <td>
-					      	<button  class="boton-principal" id="boton-3a" onclick="cambiarEstado('c','1a')">Aceptado</button>	
-					      	<button  class="boton-principal boton-segundo" id="boton-3b" style="display: none" onclick="cambiarEstado('c','2b')">Preparado</button>	
-					      	<button  class="boton-principal boton-tercero" id="boton-3c" style="display: none"  onclick="cambiarEstado('c','3c')">Listo</button>
-					      </td>
-					    </tr>
+                        <asp:Repeater ID="repPedidos"  OnItemCommand="repPedidos_ItemCommand" runat="server">
+                            <ItemTemplate>
+					            <tr>
+					              <td> <asp:Label ID="lblNombre" runat="server" Text='<%# Eval("UsuarioNombre") %>'></asp:Label></td>
+					              <td> <asp:Label ID="lblNroPedido" runat="server" Text='<%# Eval("IdPedido") %>'></asp:Label></td>
+					              <td>
+						              <ul>
+                                        <asp:Repeater ID="repProductos" runat="server" DataSource="<%# GetGarantias(Container.DataItem) %>" >
+                                            <ItemTemplate>
+                                                <li><asp:Label ID="lblTituloProducto" runat="server" Text='<%# Eval("TituloProducto") %>'></asp:Label></li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+						              </ul>
+					              </td>
+					              <td>
+					      	        <asp:Button class="boton-principal" ID="btnAcetar"  runat="server" Text="Aceptado" CommandName='<%# "Aceptado-" + Eval("IdPedido") %>' />
+                                    <asp:Button class="boton-principal boton-segundo" Visible="false" ID="btnPreparado" runat="server" Text="Preparado" CommandName='<%# "Preparado-" + Eval("IdPedido") %>' />
+                                    <asp:Label ID="lblListo" runat="server" Text="¡Listo!"  Visible="false"></asp:Label>
+					      	      </td>
+					            </tr>
+                            </ItemTemplate>
+                          </asp:Repeater>
 					  </tbody>
 					</table>
 		        </div>

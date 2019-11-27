@@ -48,6 +48,11 @@ namespace COMANDFAST.Layer.Business
             return DAOPedido.ObtenerPedidoPorUsuario(idUsuario);
         }
 
+        public static List<DTOPedido> ObtenerPedidos()
+        {
+            return DAOPedido.ObtenerPedidos();
+        }
+
         public static List<DTOPedidoProducto> ObtenerPedidoProducto(int IdPedido)
         {
             return DAOPedidoProducto.ObtenerPedidoProducto(IdPedido);
@@ -56,6 +61,11 @@ namespace COMANDFAST.Layer.Business
         public static List<DTOEstadoPedido> ObtenerEstadoPedido(int IdPedido)
         {
             return DAOEstadoPedido.ObtenerEstadoPedido(IdPedido);
+        }
+
+        public static void CambiarEstado(int IdPedido, int Estado)
+        {
+            DAOEstadoPedido.CambiarEstado(IdPedido, Estado);
         }
     }
 }

@@ -20,6 +20,7 @@ namespace COMANDFAST.Layer.Data.DTO
 
         public int IdUsuario { get; set; }
 
+        public string UsuarioNombre { get; set; }
         #endregion
 
         #region Constructores

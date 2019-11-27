@@ -63,5 +63,36 @@ namespace COMANDFAST.Layer.Data.DAO
                 throw;
             }
         }
+
+        public static List<DTOPedido> ObtenerPedidos()
+        {
+            try
+            {
+                List<DTOPedido> pedido = new List<DTOPedido>();
+
+                var pedidoBd = (from p in entities.Pedido
+                                join usu in entities.Usuario
+                                  on p.Id_Usuario equals usu.Id_Usuario
+                                select new { p , usu}).OrderByDescending(X => X.p.Id_Pedido).ToList();
+
+                foreach (var i in pedidoBd)
+                {
+                    DTOPedido p = new DTOPedido();
+
+                    p.IdPedido = i.p.Id_Pedido;
+                    p.IdEstadoPedido = i.p.Id_Estado_Pedido;
+                    p.Monto = i.p.Monto;
+                    p.UsuarioNombre = i.usu.Nombre + " " + i.usu.Apellido;
+
+                    pedido.Add(p);
+                }
+
+                return pedido;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

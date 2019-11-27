@@ -63,5 +63,24 @@ namespace COMANDFAST.Layer.Data.DAO
                 throw;
             }
         }
+
+        public static void CambiarEstado(int idPedido, int idEstado)
+        {
+            try
+            {
+                Estado_Pedido estadoPedido = new Estado_Pedido()
+                {
+                    Id_Pedido = idPedido,
+                    Id_Estado = idEstado,
+                    Fecha_Hora = DateTime.Now
+                };
+                entities.Estado_Pedido.Add(estadoPedido);
+                entities.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
