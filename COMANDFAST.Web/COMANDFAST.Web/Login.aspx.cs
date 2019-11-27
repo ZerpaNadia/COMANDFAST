@@ -55,7 +55,7 @@ namespace COMANDFAST.Web
                     if (usuario.TipoUsuario == (int)TipoUsuarioEnum.Cliente)
                         Response.Redirect("Default.aspx");
                     if (usuario.TipoUsuario == (int)TipoUsuarioEnum.Socio)
-                        Response.Redirect("Producto.aspx");
+                        Response.Redirect("AltaProducto.aspx");
                     if (usuario.TipoUsuario == (int)TipoUsuarioEnum.Cocinero)
                         Response.Redirect("Cocina.aspx");
                 }
