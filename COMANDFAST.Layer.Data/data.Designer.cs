@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Nadia\Desktop\COMANDFAST\COMANDFAST.Layer.Data\data.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\P046234\Desktop\COMANDFAST\COMANDFAST\COMANDFAST.Layer.Data\data.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

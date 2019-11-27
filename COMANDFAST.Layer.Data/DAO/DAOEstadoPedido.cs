@@ -50,7 +50,7 @@ namespace COMANDFAST.Layer.Data.DAO
                     ep.Id = i.ep.Id;
                     ep.IdEstado = i.ep.Id_Estado;
                     ep.IdPedido = i.ep.Id_Pedido;
-                    ep.EstadoNombre = i.e.Descripcion;
+                    ep.EstadoNombre = i.e.Descripcion.ToUpper();
                     ep.Fecha = i.ep.Fecha_Hora;
 
                     estadoPedido.Add(ep);

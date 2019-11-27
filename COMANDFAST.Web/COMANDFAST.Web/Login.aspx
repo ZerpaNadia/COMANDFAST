@@ -30,14 +30,14 @@
         <asp:Label ID="txtRegistro" runat="server" CssClass="text-danger" Text="Reg"></asp:Label>
     </div>
 	<div class="container-login100-form-btn">
-        <input type="submit" class="login100-form-btn" value="Login" runat="server" id="cmdLogin"><p>&nbsp;</p>
+        <input type="submit" class="login100-form-btn" value="Ingresar" runat="server" id="cmdLogin"><p>&nbsp;</p>
 	</div>
     <br />
         <asp:Label id="lblMsg" ForeColor="red" Font-Name="Verdana" Font-Size="10" runat="server" style="text-align: center"></asp:Label><br/>
     
 	<div class="text-center p-t-90">
         <br />
-        <asp:HyperLink ID="irRegistro" NavigateUrl="~/Registro.aspx" class="txt1" runat="server">No estas regitrado?</asp:HyperLink>
+        <asp:HyperLink ID="irRegistro" NavigateUrl="~/Registro.aspx" class="txt1" runat="server">¿No estas regitrado?</asp:HyperLink>
 	    <br />
         <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Menu-externo.aspx" class="txt1" runat="server">Ver Menú</asp:HyperLink>
 	</div>

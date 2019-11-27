@@ -57,6 +57,6 @@
         <asp:Label ID="txtError" runat="server" CssClass="text-danger" Text="Error"></asp:Label>
     </div><br/>
     <div class="container-login100-form-btn">
-        <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="login100-form-btn" />
+        <asp:Button runat="server" OnClick="CreateUser_Click" Text="Registrar" CssClass="login100-form-btn" />
     </div><br/>
 </asp:Content>

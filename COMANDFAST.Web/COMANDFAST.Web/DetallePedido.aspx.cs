@@ -23,7 +23,7 @@ namespace COMANDFAST.Web
             repProductos.DataBind();
 
             lblTotal.Text = "$ " + pedido.Monto.ToString();
-
+            lblIdPedido.Text = pedido.IdPedido.ToString();
 
             var estados = bsPedido.ObtenerEstadoPedido(pedido.IdPedido);
 

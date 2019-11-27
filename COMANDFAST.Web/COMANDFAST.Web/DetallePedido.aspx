@@ -60,6 +60,15 @@
 			padding-top: 8px;
 			padding-left: 9px;
 		}
+
+        #menu {
+            min-height:365px;
+        }
+
+        .menu-text-right{
+	        float:right;
+	        width: 25%;
+        }
 	</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -71,7 +80,7 @@
 	      		<div class="menu-text">									      
 					<div class="menu-text-left">
 					    <div class="rep-w3l-text book-form">
-							  <h4>NRO. PEDIDO: 
+							  <h4>NRO. PEDIDO: &nbsp;&nbsp;
                                   <asp:Label ID="lblIdPedido" runat="server" Text="" style="font-weight: bold;"></asp:Label>
 							  </h4>			  
 						</div>											

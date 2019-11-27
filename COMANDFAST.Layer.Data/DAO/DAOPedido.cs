@@ -41,17 +41,27 @@ namespace COMANDFAST.Layer.Data.DAO
 
         public static DTOPedido ObtenerPedidoPorUsuario(int idUsuario)
         {
-            DTOPedido pedido = new DTOPedido();
+            try
+            {
+                DTOPedido pedido = new DTOPedido();
 
-            var pedidoBd = (from p in entities.Pedido
-                            where p.Id_Usuario == idUsuario 
-                            select p).OrderByDescending(X => X.Id_Pedido).FirstOrDefault();
+                var pedidoBd = (from p in entities.Pedido
+                                where p.Id_Usuario == idUsuario
+                                select p).OrderByDescending(X => X.Id_Pedido).FirstOrDefault();
 
-            pedido.IdPedido = pedidoBd.Id_Pedido;
-            pedido.IdEstadoPedido = pedidoBd.Id_Estado_Pedido;
-            pedido.Monto = pedidoBd.Monto;
+                if (pedidoBd != null)
+                {
+                    pedido.IdPedido = pedidoBd.Id_Pedido;
+                    pedido.IdEstadoPedido = pedidoBd.Id_Estado_Pedido;
+                    pedido.Monto = pedidoBd.Monto;
+                }
 
-            return pedido;
+                return pedido;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
