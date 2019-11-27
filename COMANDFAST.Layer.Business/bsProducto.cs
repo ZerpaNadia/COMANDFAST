@@ -21,7 +21,18 @@ namespace COMANDFAST.Layer.Business
             {
             }
         }
-
+		
+		public static void EliminarProducto(int IdEliminar)
+        {
+            try
+            {
+                //DAOProducto.EliminarProducto(IdEliminar);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+		
         public static DTOProducto CrearProductoDTO(string titulo, string descripcion, string precio, string stock, bool activo)
         {
             DTOProducto productoDTO = new DTOProducto();
