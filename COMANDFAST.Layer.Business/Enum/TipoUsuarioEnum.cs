@@ -10,6 +10,7 @@ namespace COMANDFAST.Layer.Business
     {
         Cliente = 1,
         Empleado = 2,
-        Socio = 3
+        Socio = 3,
+        Cocinero = 4
     }
 }

@@ -21,6 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="Assets/fonts/google-font/Roboto.css"/>
 		<!-- //web-fonts -->
     <asp:ContentPlaceHolder ID="head" runat="server">
+
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -30,9 +31,12 @@
 		<div class="header">
 			<div class="container">	
 				<nav class="navbar navbar-default">
-					<div class="navbar-header">
+					<div class="navbar-header" style="float:left">
 						<h1><a  href="Default.aspx"><span>C</span>OMAND <span>F</span>AST</a></h1>
-					</div>	
+					</div>
+                    <div class="logout" style="float:right;margin-top:22px;">
+                        <asp:HyperLink ID="lnkSalir" NavigateUrl="Login.aspx?reg=salir" ToolTip="Salir"  runat="server"><img alt="salir" src="Assets/images/logout.png" /></asp:HyperLink>
+                    </div>	
 				</nav>
 			</div> 
 		</div>

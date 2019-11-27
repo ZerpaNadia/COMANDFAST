@@ -30,6 +30,14 @@ namespace COMANDFAST.Web
                     txtRegistro.Text = "* La sesion ha expirado.";
                     txtRegistro.Visible = true;
                 }
+
+                if (esRegistro == "salir")
+                {
+                    Session.Remove("Usuario");
+                    txtRegistro.Text = "* La sesion ha finalizado.";
+                    txtRegistro.Visible = true;
+                }
+
             }
 			
             this.cmdLogin.ServerClick += new System.EventHandler(this.cmdLogin_ServerClick);
@@ -48,6 +56,8 @@ namespace COMANDFAST.Web
                         Response.Redirect("Default.aspx");
                     if (usuario.TipoUsuario == (int)TipoUsuarioEnum.Socio)
                         Response.Redirect("Producto.aspx");
+                    if (usuario.TipoUsuario == (int)TipoUsuarioEnum.Cocinero)
+                        Response.Redirect("Cocina.aspx");
                 }
             }
             else

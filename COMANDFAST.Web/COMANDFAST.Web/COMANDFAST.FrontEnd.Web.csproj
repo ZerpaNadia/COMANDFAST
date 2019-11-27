@@ -136,6 +136,7 @@
     <Content Include="Assets\images\g7.jpg" />
     <Content Include="Assets\images\g8.jpg" />
     <Content Include="Assets\images\icons.svg" />
+    <Content Include="Assets\images\logout.png" />
     <Content Include="Assets\images\m1.jpg" />
     <Content Include="Assets\images\m2.jpg" />
     <Content Include="Assets\images\m3.jpg" />
