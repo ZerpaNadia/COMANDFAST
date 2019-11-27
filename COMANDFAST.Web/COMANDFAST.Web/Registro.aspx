@@ -29,7 +29,7 @@
 	</span><br/><br/>
     <div class="wrap-input100 validate-input">
         <span class="fa fa-envelope white" aria-hidden="true"></span>
-        <asp:TextBox runat="server" name="username" ID="txtEmail"  required="true"  placeholder="Email" CssClass="input100" />
+        <asp:TextBox runat="server" name="username" ID="txtEmail" TextMode="Email"  required="true"  placeholder="Email" CssClass="input100" />
 	</div>
     <div class="wrap-input100 validate-input">
         <span class="fa fa-user white" aria-hidden="true"></span>
